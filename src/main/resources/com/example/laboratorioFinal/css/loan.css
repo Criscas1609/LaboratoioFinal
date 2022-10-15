@@ -1,0 +1,28 @@
+.tabla{
+
+    -fx-background-image: url("photos/Presentación1.png");
+    -fx-background-size: 600px 350px;
+    -fx-background-position: 45% 45%;
+    -fx-background-repeat: no-repeat;
+
+}.botonesCambios{
+     -fx-background-color: #008287;
+     -fx-border-color: #FFFFFF;
+     -fx-border-width: 2;
+     -fx-text-fill: #FFFFFF;
+     -fx-font-family: "Times New Roman";
+     -fx-font-style: italic;
+     -fx-background-radius: 10 10 10 10;
+     -fx-border-radius: 10 10 10 10;
+ }
+.añadirPrestamo{
+    -fx-background-color: Transparent;
+    -fx-background-repeat:no-repeat;
+    -fx-border-style: none;
+
+}
+
+.botonesCrear{
+    -fx-background-color:  #000D8A;
+    -fx-font-size: 15px;
+}

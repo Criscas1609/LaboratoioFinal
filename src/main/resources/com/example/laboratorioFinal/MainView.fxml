@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@css/loan.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.laboratorioFinal.controller.MainViewController">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <center>
+            <AnchorPane prefHeight="334.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+         </center>
+         <top>
+            <AnchorPane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: #000273;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="216.0" prefHeight="50.0" prefWidth="186.0" text="Bienvenid@" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="350.0" prefWidth="228.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="351.0" fitWidth="260.0" layoutX="-5.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@photos/277589694_5036066919814061_7663069786932569509_n.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </left>
+         <right>
+            <AnchorPane prefHeight="352.0" prefWidth="363.0" style="-fx-background-color: #F6F6F6;" stylesheets="@css/loan.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="11.0" layoutY="14.0" prefHeight="55.0" prefWidth="324.0" text="Seleccione lo que desea ver o administrar" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="19.0" />
+                     </font>
+                  </Label>
+                  <Button id="botonesCambios" layoutX="20.0" layoutY="90.0" mnemonicParsing="false" onAction="#personView" prefHeight="22.0" prefWidth="92.0" style="-fx-background-color: #FF4343;" styleClass="botonesCambios" stylesheets="@css/loan.css" text="Personas" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="132.0" layoutY="91.0" prefHeight="32.0" prefWidth="220.0" text="Aqui se puede ver a los monitores, estudiantes, profesores, administrativos etc..." textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="11.0" />
+                     </font>
+                  </Label>
+                  <Button id="botonesCambios" layoutX="11.0" layoutY="144.0" mnemonicParsing="false" onAction="#elementView" prefHeight="34.0" prefWidth="109.0" style="-fx-background-color: #FF4343;" styleClass="botonesCambios" stylesheets="@css/loan.css" text="Elementos" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="132.0" layoutY="145.0" prefHeight="32.0" prefWidth="220.0" text="En este espacio se podra administrar todos los elementos del laboratorio" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="11.0" />
+                     </font>
+                  </Label>
+                  <Button id="botonesCambios" layoutX="9.0" layoutY="202.0" mnemonicParsing="false" onAction="#loanView" prefHeight="38.0" prefWidth="113.0" style="-fx-background-color: #FF4343;" styleClass="botonesCambios" stylesheets="@css/loan.css" text="Prestamos" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="132.0" layoutY="205.0" prefHeight="32.0" prefWidth="220.0" text="Aqui podras ver, borrar, crear prestamos de los elementos del laboratorio" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="11.0" />
+                     </font>
+                  </Label>
+                  <Button id="botonesCambios" layoutX="18.0" layoutY="262.0" mnemonicParsing="false" onAction="#reportView" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #FF4343;" styleClass="botonesCambios" stylesheets="@css/loan.css" text="Reportes" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="131.0" layoutY="266.0" prefHeight="32.0" prefWidth="220.0" text="En este espacio podras ver los reportes generados automaticamente del sistema" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

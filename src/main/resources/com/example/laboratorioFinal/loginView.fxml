@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="397.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.laboratorioFinal.controller.LoginViewController">
+   <children>
+      <BorderPane prefHeight="397.0" prefWidth="494.0">
+         <center>
+            <AnchorPane prefHeight="243.0" prefWidth="399.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="TOP_LEFT" layoutX="119.0" layoutY="42.0" text="Usuario" />
+                  <Label layoutX="109.0" layoutY="104.0" text="Contraseña" />
+                  <TextField fx:id="loginUsuario" layoutX="65.0" layoutY="71.0" promptText="Ingrese su usuario" />
+                  <Button layoutX="90.0" layoutY="177.0" mnemonicParsing="false" onAction="#mainView" prefHeight="40.0" prefWidth="100.0" text="Entrar" />
+                  <PasswordField fx:id="loginContraseña" layoutX="64.0" layoutY="136.0" promptText="Ingrese su contraseña" />
+                  <ImageView fitHeight="155.0" fitWidth="160.0" layoutX="290.0" layoutY="59.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@photos/165527304_3881466538607444_9069140467460221044_n.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <AnchorPane prefHeight="82.0" prefWidth="494.0" style="-fx-background-color: #07005A;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="64.0" layoutY="3.0" prefHeight="102.0" prefWidth="366.0" text="Ingresar al sistema del laboratorio" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

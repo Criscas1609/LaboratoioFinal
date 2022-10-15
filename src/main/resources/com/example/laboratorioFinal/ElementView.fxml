@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.laboratorioFinal.controller.ElementViewController">
+   <children>
+      <BorderPane layoutY="-1.0" prefHeight="622.0" prefWidth="908.0">
+         <top>
+            <AnchorPane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: #000273;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="241.0" prefHeight="50.0" prefWidth="397.0" text="Administracion de elementos" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="28.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="754.0" layoutY="10.0" mnemonicParsing="false" onAction="#MainView" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: #D80000;" styleClass="botonesCambios" stylesheets="@css/loan.css" text="Menu principal" textAlignment="CENTER">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="11.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #5358C2;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="218.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5016920473773266" layoutX="14.0" layoutY="14.0" orientation="VERTICAL" prefHeight="574.0" prefWidth="908.0" AnchorPane.bottomAnchor="-394.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-708.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="284.0" prefWidth="903.0">
+                                 <children>
+                                    <GridPane layoutX="20.0" layoutY="14.0" prefHeight="284.0" prefWidth="617.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="308.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                                             <children>
+                                                <Label text="Nombre" />
+                                                <TextField prefHeight="26.0" prefWidth="526.0" promptText="Ingrese el nombre del estudiante" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label text="Tipo" />
+                                                <ChoiceBox id="tipoElemen" fx:id="tipoElemen" prefHeight="26.0" prefWidth="238.0" />
+                                                <Label text="Cantidad" />
+                                                <TextField fx:id="cantidadElemen" prefHeight="26.0" prefWidth="219.0" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="4">
+                                             <children>
+                                                <Label text="Id" />
+                                                <TextField id="idElemen" fx:id="idElemen" prefHeight="26.0" prefWidth="326.0" promptText="Ingrese el id del elemento" />
+                                                <Label text="Precio" />
+                                                <TextField id="precioElemen" fx:id="precioElemen" prefHeight="26.0" prefWidth="164.0" promptText="Ingrese el precio" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                                             <children>
+                                                <Label text="Nombre" />
+                                                <TextField id="nombreElemen" fx:id="nombreElemen" prefHeight="26.0" prefWidth="526.0" promptText="Ingrese el nombre del elemento" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label text="Estado" />
+                                                <ChoiceBox id="estadoElemen" fx:id="estadoElemen" prefHeight="26.0" prefWidth="223.0" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="3">
+                                             <children>
+                                                <Label text="Uso" />
+                                                <ChoiceBox id="usoElemen" fx:id="usoElemen" prefHeight="26.0" prefWidth="238.0" />
+                                                <Label text="Ubicacion" />
+                                                <ChoiceBox id="ubiElemen" fx:id="ubiElemen" prefHeight="26.0" prefWidth="222.0" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                    </GridPane>
+                                    <Button id="crearElemen" layoutX="728.0" layoutY="134.0" mnemonicParsing="false" onAction="#crearElemen" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000D8A;" stylesheets="@css/loan.css" text="Crear">
+                                       <styleClass>
+                                          <String fx:value="botonesCambios" />
+                                          <String fx:value="botonesCrear" />
+                                       </styleClass></Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <Button id="editarElemen" fx:id="buttonEdit" layoutX="617.0" layoutY="217.0" mnemonicParsing="false" onAction="#editarElemen" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000D8A;" stylesheets="@css/loan.css" text="Editar">
+                                       <styleClass>
+                                          <String fx:value="botonesCambios" />
+                                          <String fx:value="botonesCrear" />
+                                       </styleClass></Button>
+                                    <Button id="eliminarElemen" layoutX="769.0" layoutY="217.0" mnemonicParsing="false" onAction="#eliminarElemen" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000D8A;" stylesheets="@css/loan.css" text="Eliminar">
+                                       <styleClass>
+                                          <String fx:value="botonesCambios" />
+                                          <String fx:value="botonesCrear" />
+                                       </styleClass></Button>
+                                    <TableView id="tabla" fx:id="tblElement" layoutX="12.0" layoutY="2.0" onMouseClicked="#seleccionar" prefHeight="200.0" prefWidth="878.0" styleClass="tabla" stylesheets="@css/loan.css">
+                                       <columns>
+                                          <TableColumn fx:id="colNombreEle" prefWidth="191.9999822974205" text="Nombre" />
+                                          <TableColumn fx:id="colTipoEle" prefWidth="91.20004272460938" text="Tipo" />
+                                          <TableColumn fx:id="conlCantiEle" prefWidth="64.800048828125" text="Cantidad" />
+                                          <TableColumn fx:id="colEstadoEle" prefWidth="88.79998779296875" text="Estado" />
+                                          <TableColumn fx:id="colUsoEle" prefWidth="115.2000732421875" text="Uso" />
+                                          <TableColumn fx:id="colUbiEle" prefWidth="135.20001220703125" text="Ubicacion" />
+                                          <TableColumn fx:id="colIdElem" prefWidth="91.99993896484375" text="Id" />
+                                          <TableColumn fx:id="colPrecioElem" prefWidth="95.19992675781248" text="Precio" />
+                                       </columns>
+                                    </TableView>
+                                    <Button id="buscarElemen" layoutX="33.0" layoutY="217.0" mnemonicParsing="false" onAction="#buscarElemen" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000D8A;" stylesheets="@css/loan.css" text="Buscar">
+                                       <styleClass>
+                                          <String fx:value="botonesCambios" />
+                                          <String fx:value="botonesCrear" />
+                                       </styleClass></Button>
+                                    <TextField id="nombreProfesor" fx:id="inputBuscarAdmin" layoutX="149.0" layoutY="225.0" prefHeight="26.0" prefWidth="214.0" promptText="Ingrese el Nombre o codigo a buscar" />
+                                    <Button id="editarProfesor" layoutX="462.0" layoutY="215.0" mnemonicParsing="false" onAction="#seleccionarElement" prefHeight="41.0" prefWidth="95.0" stylesheets="@css/loan.css" text="Seleccionar">
+                                       <styleClass>
+                                          <String fx:value="botonesCrear" />
+                                          <String fx:value="botonesCambios" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

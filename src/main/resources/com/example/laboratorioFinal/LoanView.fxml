@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="908.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.laboratorioFinal.controller.LoanViewController">
+   <children>
+      <BorderPane layoutY="-1.0" prefHeight="622.0" prefWidth="908.0">
+         <top>
+            <AnchorPane prefHeight="47.0" prefWidth="600.0" style="-fx-background-color: #000273;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="388.0" prefHeight="50.0" prefWidth="126.0" text="Prestamos" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="28.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="754.0" layoutY="10.0" mnemonicParsing="false" onAction="#MainView" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: red;" styleClass="botonesCambios" stylesheets="@css/loan.css" text="Menu principal" textAlignment="CENTER">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="11.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #5358C2;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="577.0" prefWidth="914.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5016920473773266" layoutX="14.0" layoutY="14.0" orientation="VERTICAL" prefHeight="180.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                 <children>
+                                    <GridPane layoutX="20.0" layoutY="14.0" prefHeight="185.6" prefWidth="778.4" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: white;">
+                                             <children>
+                                                <Label text="Nombre">
+                                                   <font>
+                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField id="nombrePrestamista" fx:id="nombrePrestamista" prefHeight="26.0" prefWidth="403.0" promptText="Nombre de persona a la que se le va a prestar" />
+                                                <Label prefHeight="18.0" prefWidth="52.0" text="Nombre">
+                                                   <font>
+                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField id="nombreMonitorPrestamo" fx:id="nombreMonitorPrestamo" prefHeight="26.0" prefWidth="313.0" promptText="Ingrese el nombre del monito que prestó" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label text="Fecha del prestamo">
+                                                   <font>
+                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <DatePicker id="fechaPrestamo" fx:id="fechaPrestamo" onAction="#getDate" />
+                                                <Label text="Fecha de entrega">
+                                                   <font>
+                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <DatePicker id="entregaPrestamo" fx:id="entregaPrestamo" onAction="#getDelivery" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label text="Elemento">
+                                                   <font>
+                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox id="elemenPrestamo" fx:id="elemenPrestamo" prefHeight="26.0" prefWidth="204.0" />
+                                                <Label text="Cantidad">
+                                                   <font>
+                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField id="cantidadPrestamo" fx:id="cantidadPrestamo" prefHeight="26.0" prefWidth="139.0" promptText="Ingrese la cantidad" />
+                                                <Label prefHeight="18.0" prefWidth="46.0" text="Tipo">
+                                                   <font>
+                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <CheckBox id="internoExterno" fx:id="externo" mnemonicParsing="false" text="Externo">
+                                                   <font>
+                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
+                                                   </font>
+                                                </CheckBox>
+                                                <CheckBox id="internoExterno" fx:id="interno" mnemonicParsing="false" text="Interno">
+                                                   <font>
+                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
+                                                   </font>
+                                                </CheckBox>
+                                             </children>
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <Button id="añadirPrestamo" layoutX="98.0" layoutY="223.0" mnemonicParsing="false" onAction="#addLoan" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000D8A;" styleClass="botonesCambios" stylesheets="@css/loan.css" text="Añadir">
+                                       <font>
+                                          <Font name="Times New Roman Bold Italic" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="eliminarPrestamo" layoutX="377.0" layoutY="223.0" mnemonicParsing="false" onAction="#eliminarPrestamo" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #000D8A;" styleClass="botonesCambios" stylesheets="@css/loan.css" text="Eiminar">
+                                       <font>
+                                          <Font name="Times New Roman Bold Italic" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <Button id="finalizarPrestamo" layoutX="622.0" layoutY="223.0" mnemonicParsing="false" onAction="#finalizarPrestamo" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: #000D8A;" styleClass="botonesCambios" stylesheets="@css/loan.css" text="Finalizar prestamo">
+                                       <font>
+                                          <Font name="Times New Roman Bold Italic" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <TableView id="tabla" fx:id="tblLoan" layoutX="14.0" layoutY="14.0" mouseTransparent="true" pickOnBounds="false" prefHeight="213.0" prefWidth="898.0" styleClass="tabla" stylesheets="@css/loan.css" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="colElementLoan" prefWidth="273.60001224279404" text="Elemento" />
+                                          <TableColumn fx:id="colCantiLoan" prefWidth="110.4000244140625" text="Cantidad" />
+                                          <TableColumn fx:id="colPrestamoLoan" prefWidth="180.00003051757812" text="Fecha de prestamo" />
+                                          <TableColumn fx:id="colEntregaLoan" prefWidth="168.800048828125" text="Fecha de entrega" />
+                                          <TableColumn fx:id="colDeudorLoan" prefWidth="165.60003662109375" text="Deudor" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
