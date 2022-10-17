@@ -129,7 +129,7 @@
                                        </columnResizePolicy>
                                     </TableView>
                                     <TextField id="nombreProfesor" fx:id="inputBuscar" layoutX="401.0" layoutY="501.0" prefHeight="26.0" prefWidth="214.0" promptText="Ingrese el Nombre o codigo a buscar" />
-                                    <Button id="buscarProfesor" layoutX="298.0" layoutY="496.0" mnemonicParsing="false"  prefHeight="36.0" prefWidth="92.0" stylesheets="@css/loan.css" text="Buscar">
+                                    <Button id="buscarProfesor" layoutX="298.0" layoutY="496.0" mnemonicParsing="false" onAction="#botonBuscar" prefHeight="36.0" prefWidth="92.0" stylesheets="@css/loan.css" text="Buscar">
                                        <styleClass>
                                           <String fx:value="botonesCrear" />
                                           <String fx:value="botonesCambios" />
