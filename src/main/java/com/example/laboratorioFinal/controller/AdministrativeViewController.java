@@ -102,6 +102,16 @@ public class AdministrativeViewController implements Initializable {
     private TableColumn<?, ?> tblnombreAdmin;
 
     @FXML
+    void cargarAdmin(ActionEvent event) {
+        mfc.cargarAdmin(tblAdmin);
+    }
+
+    @FXML
+    void cargarProfe(ActionEvent event) {
+        mfc.cargarProfe(tblProfes);
+    }
+
+    @FXML
     void seleccionarAdmin(ActionEvent event) {
         mfc.seleccionarAdmin(tblAdmin, nombreAdmin, idAdmin, antiAdmin, cargoAdmin);
     }

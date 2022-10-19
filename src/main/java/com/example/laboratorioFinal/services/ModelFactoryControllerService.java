@@ -1,17 +1,14 @@
 package com.example.laboratorioFinal.services;
 
 import com.example.laboratorioFinal.model.*;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public interface ModelFactoryControllerService {
     //login
     Boolean login(String username, String password);
 
     //Estudiante
-    void crearElemen(String nombre, String tipo,int cantidad,String uso, String ubicacion, String estado,String id,int precio);
+
     void addTable(TableView<Student> tablePersonEs);
     void createStudent(String name, String id, String career, String semester);
     void editStudent(TableView<Student> tablePersonEs, TextField nombreEstudiante, TextField idEstudiante, ChoiceBox<String> semestreEstudiante, ChoiceBox<String> carreraEstudiante, Student student);
@@ -36,7 +33,7 @@ public interface ModelFactoryControllerService {
     //Loan
     void addLoan(TableView<Loan> tblLoan, String element, String amount, String dateLoan, String deliveryDate, String debtorName);
     void finalizarPrestamo(String element, String amount, String dateLoan, String deliveryDate, String debtorName);
-    void eliminarPrstamo(TableView<Loan> tblLoan, TextField cantidadPrestamo, TextField nombrePrestamista, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo);
+    void eliminarPrestamo(TableView<Loan> tblLoan, TextField cantidadPrestamo, ChoiceBox nombreEstudiante, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo);
 
     //Monitor
     void newMonitor(String name, String id, String career, String semester);
@@ -45,4 +42,35 @@ public interface ModelFactoryControllerService {
     void editMonitor(Monitor aux, TableView<Monitor> tableMonitor);
     void removeMonitor(TableView<Monitor> tableMonitor);
 
-    }
+    //Elementos
+    void crearElemen(TableView<Element> tblElement, String nombre, String tipo, int cantidad, String uso, String ubicacion, String estado, String id, int precio);
+    void editarElemen(Element aux, TableView<Element> tblElement);
+    void buscarElemen(TableView<Element> tblElement, String name);
+    void eliminarElemen(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen,ChoiceBox ubiElemen,ChoiceBox tipoElemen,TextField precioElemen,TextField nombreElemen,TextField idElemen,ChoiceBox estadoElemen);
+    void seleccionarElement(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen, ChoiceBox ubiElemen, ChoiceBox tipoElemen, TextField precioElemen, TextField nombreElemen, TextField idElemen, ChoiceBox estadoElemen);
+    //Reportes
+
+    void allStudent(Label cantEs);
+    void allSoftware(Label cantSoft);
+    void allIndus(Label cantIndus);
+    void allCivil(Label cantCivil);
+    void reportMonitor(Label cantMonitor);
+    void monitorsCareer(Label cantMSoft, Label cantMIndus, Label cantMCivil);
+    void allAdmin(Label cantProfes, Label cantAdmin);
+    void allElements(Label cantElement);
+    void fichastype(Label cantFichas);
+    void metalType(Label cantMetal);
+    void ruedasType(Label cantRuedas);
+    void esferasType(Label cantEsferas);
+    void availableReport(Label cantDisponibles);
+    void movimientoReport(Label cantMov);
+    void notAvailableReport(Label cantNoDis);
+    void ensambleReport(Label cantEnsamble);
+    void estructuraReport(Label cantEstructura);
+    void cargarAdmin(TableView<Administrative> tblAdmin);
+    void cargarProfe(TableView<Teacher> tblProfes);
+    void totalPrice(Label precioTotal);
+    void cargarEs(TableView<Student> tablePersonEs);
+    void cargarMon(TableView<Monitor> tableMonitor);
+    void cargarElement(TableView<Element> tblElement);
+}

@@ -4,6 +4,7 @@ import com.example.laboratorioFinal.model.Administrative;
 import com.example.laboratorioFinal.model.Teacher;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
@@ -23,4 +24,7 @@ public interface AdministrativeService {
     ObservableList<String> getMatterTeacher();
     ObservableList<Teacher> getTeacherObservableList();
     ObservableList<Administrative> getAdministrativeObservableList();
+    void allAdmin(Label cantProfes, Label cantAdmin);
+    void cargarAdmin(TableView<Administrative> tblAdmin);
+    void cargarProfe(TableView<Teacher> tblProfes);
 }

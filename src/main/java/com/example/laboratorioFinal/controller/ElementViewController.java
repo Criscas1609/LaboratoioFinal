@@ -50,7 +50,6 @@ public class ElementViewController implements Initializable {
     @FXML
     private Button buttonEdit;
 
-
     @FXML
     private TableColumn<?, ?> colEstadoEle;
 
@@ -65,6 +64,9 @@ public class ElementViewController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colTipoEle;
+
+    @FXML
+    private TextField inputBuscar;
 
     @FXML
     private TableColumn<?, ?> colUbiEle;
@@ -107,6 +109,11 @@ public class ElementViewController implements Initializable {
         HelloApplication.mainViews(event);
     }
 
+    @FXML
+    void cargarElement(ActionEvent event) {
+        mfc.cargarElement(tblElement);
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -144,12 +151,15 @@ public class ElementViewController implements Initializable {
     }
     @FXML
     void seleccionarElement(ActionEvent event) {
-
+        mfc.seleccionarElement(tblElement,cantidadElemen,usoElemen,ubiElemen,tipoElemen,precioElemen,nombreElemen,idElemen,estadoElemen);
     }
+
+
 
     @FXML
     void buscarElemen(ActionEvent event) {
-        String nombre = String.valueOf(this.nombreElemen.getText());
+        String nombre = String.valueOf(this.inputBuscar.getText());
+        mfc.buscarElemen(tblElement,nombre);
     }
 
     @FXML

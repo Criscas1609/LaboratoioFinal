@@ -131,5 +131,9 @@ public class StudentViewController implements Initializable {
         semester = String.valueOf(this.semestreEstudiante.getValue());
         career = String.valueOf(this.carreraEstudiante.getValue());
     }
+    @FXML
+    void cargarEs(ActionEvent event) {
+        mfc.cargarEs(tablePersonEs);
+    }
 }
 

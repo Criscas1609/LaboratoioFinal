@@ -124,6 +124,12 @@
                                           <String fx:value="botonesCambios" />
                                           <String fx:value="botonesCrear" />
                                        </styleClass></Button>
+                                    <Button id="editarProfesor" layoutX="812.0" layoutY="13.0" mnemonicParsing="false" onAction="#cargarElement" prefHeight="22.0" prefWidth="85.0" stylesheets="@css/loan.css" text="Cargar">
+                                       <styleClass>
+                                          <String fx:value="botonesCrear" />
+                                          <String fx:value="botonesCambios" />
+                                       </styleClass>
+                                    </Button>
                                  </children>
                               </AnchorPane>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -138,7 +144,7 @@
                                           <String fx:value="botonesCambios" />
                                           <String fx:value="botonesCrear" />
                                        </styleClass></Button>
-                                    <TableView id="tabla" fx:id="tblElement" layoutX="12.0" layoutY="2.0" onMouseClicked="#seleccionar" prefHeight="200.0" prefWidth="878.0" styleClass="tabla" stylesheets="@css/loan.css">
+                                    <TableView id="tabla" fx:id="tblElement" layoutX="12.0" layoutY="2.0" prefHeight="200.0" prefWidth="878.0" styleClass="tabla" stylesheets="@css/loan.css">
                                        <columns>
                                           <TableColumn fx:id="colNombreEle" prefWidth="191.9999822974205" text="Nombre" />
                                           <TableColumn fx:id="colTipoEle" prefWidth="91.20004272460938" text="Tipo" />
@@ -155,7 +161,7 @@
                                           <String fx:value="botonesCambios" />
                                           <String fx:value="botonesCrear" />
                                        </styleClass></Button>
-                                    <TextField id="nombreProfesor" fx:id="inputBuscarAdmin" layoutX="149.0" layoutY="225.0" prefHeight="26.0" prefWidth="214.0" promptText="Ingrese el Nombre o codigo a buscar" />
+                                    <TextField id="nombreProfesor" fx:id="inputBuscar" layoutX="149.0" layoutY="225.0" prefHeight="26.0" prefWidth="214.0" promptText="Ingrese el Nombre o codigo a buscar" />
                                     <Button id="editarProfesor" layoutX="462.0" layoutY="215.0" mnemonicParsing="false" onAction="#seleccionarElement" prefHeight="41.0" prefWidth="95.0" stylesheets="@css/loan.css" text="Seleccionar">
                                        <styleClass>
                                           <String fx:value="botonesCrear" />

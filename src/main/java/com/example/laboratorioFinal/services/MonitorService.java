@@ -3,6 +3,7 @@ package com.example.laboratorioFinal.services;
 import com.example.laboratorioFinal.model.Monitor;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
@@ -15,4 +16,8 @@ public interface MonitorService {
     void searchMonitor(String name, TableView<Monitor> tableMonitor);
     void editMonitor(Monitor aux, TableView<Monitor> tableMonitor);
     void removeMonitor(TableView<Monitor> tableMonitor);
+
+    void reportMonitor(Label cantMonitor);
+    void monitorsCareer(Label cantMSoft, Label cantMIndus, Label cantMCivil);
+    void cargarMon(TableView<Monitor> tableMonitor);
 }

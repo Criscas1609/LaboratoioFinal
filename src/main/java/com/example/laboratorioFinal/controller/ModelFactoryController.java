@@ -5,10 +5,7 @@ import com.example.laboratorioFinal.services.ModelFactoryControllerService;
 import com.example.laboratorioFinal.services.impl.LaboratoryServiceImpl;
 
 import javafx.collections.ObservableList;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class ModelFactoryController implements ModelFactoryControllerService {
     LaboratoryServiceImpl laboratory;
@@ -32,10 +29,10 @@ public class ModelFactoryController implements ModelFactoryControllerService {
         System.out.println(user + password);
         return laboratory.getLoginService().login(user,password);
     }
+    //Elementos funciones:
 
-    @Override
-    public void crearElemen(String nombre, String tipo, int cantidad, String uso, String ubicacion, String estado, String id, int precio) {
-
+    public void crearElemen(TableView<Element> tblElement, String nombre, String tipo, int cantidad, String uso, String ubicacion, String estado, String id, int precio) {
+        laboratory.getElementService().crearElemen(tblElement,nombre,tipo,cantidad,uso,ubicacion,estado,id,precio);
     }
 
     //Elementos funciones:
@@ -83,6 +80,10 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     public void selectionStudent(TableView<Student> tablePersonEs,TextField nombreEstudiante, TextField idEstudiante, ChoiceBox<String> semestreEstudiante, ChoiceBox<String> carreraEstudiante){
         laboratory.getStudentService().selectionStudent(tablePersonEs, nombreEstudiante, idEstudiante, semestreEstudiante, carreraEstudiante);
     }
+
+    public void cargarEs(TableView<Student> tablePersonEs){
+        laboratory.getStudentService().cargarEs(tablePersonEs);
+    }
     // Administrativo funciones
 
     public  void createAdministrative(TableView<Administrative> tblAdmin,String name, String id, String antiguety, String charger){
@@ -96,6 +97,13 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     }
     public void eliminateAdmin(TableView<Administrative> tblAdmin, TextField nombreAdmin, TextField idAdmin, TextField antiAdmin, ChoiceBox cargoAdmin){
         laboratory.getAdministrativeService().eliminateAdmin(tblAdmin, nombreAdmin, idAdmin, antiAdmin, cargoAdmin);
+    }
+
+    public void cargarAdmin(TableView<Administrative> tblAdmin){
+        laboratory.getAdministrativeService().cargarAdmin(tblAdmin);
+    }
+    public void cargarProfe(TableView<Teacher> tblProfes){
+        laboratory.getAdministrativeService().cargarProfe(tblProfes);
     }
     public void searchAdmin(String name, TableView<Administrative> tblAdmin){laboratory.getAdministrativeService().searchAdmin(name,tblAdmin);}
 
@@ -150,6 +158,78 @@ public class ModelFactoryController implements ModelFactoryControllerService {
         laboratory.getMonitorService().removeMonitor(tableMonitor);
     }
 
+    public void cargarMon(TableView<Monitor> tableMonitor){
+        laboratory.getMonitorService().cargarMon(tableMonitor);
+    }
+
+    //Reportes
+
+    public void allStudent(Label cantEs){
+        laboratory.getStudentService().allStudent(cantEs);
+    }
+    public void allSoftware(Label cantSoft){
+        laboratory.getStudentService().allSoftware(cantSoft);
+    }
+    public void allIndus(Label cantIndus){
+        laboratory.getStudentService().allIndus(cantIndus);
+    }
+
+    public void allCivil(Label cantCivil){
+        laboratory.getStudentService().allCivil(cantCivil);
+    }
+
+    public void reportMonitor(Label cantMonitor){
+        laboratory.getMonitorService().reportMonitor(cantMonitor);
+    }
+    public void monitorsCareer(Label cantMSoft, Label cantMIndus, Label cantMCivil){
+        laboratory.getMonitorService().monitorsCareer(cantMSoft, cantMIndus, cantMCivil);
+    }
+
+    public void allAdmin(Label cantProfes, Label cantAdmin){
+        laboratory.getAdministrativeService().allAdmin(cantProfes, cantAdmin);
+    }
+
+//Reportes elementos
+    public void allElements(Label cantElement){
+        laboratory.getElementService().allElements(cantElement);
+    }
+
+    public void fichastype(Label cantFichas){
+        laboratory.getElementService().fichastype(cantFichas);
+    }
+
+    public void metalType(Label cantMetal){
+        laboratory.getElementService().metalType(cantMetal);
+    }
+
+    public void ruedasType(Label cantRuedas){
+        laboratory.getElementService().ruedasType(cantRuedas);
+    }
+    public void esferasType(Label cantEsferas){
+        laboratory.getElementService().esferasType(cantEsferas);
+    }
+
+    public void availableReport(Label cantDisponibles){
+        laboratory.getElementService().availableReport(cantDisponibles);
+    }
+    public void notAvailableReport(Label cantNoDis){
+        laboratory.getElementService().notAvailableReport(cantNoDis);
+    }
+    public void estructuraReport(Label cantEstructura){
+        laboratory.getElementService().estructuraReport(cantEstructura);
+    }
+
+    public void movimientoReport(Label cantMov){
+        laboratory.getElementService().movimientoReport(cantMov);
+    }
+
+    public void ensambleReport(Label cantEnsamble){
+        laboratory.getElementService().ensambleReport(cantEnsamble);
+    }
+
+    public void totalPrice(Label precioTotal){
+        laboratory.getElementService().totalPrice(precioTotal);
+    }
 
 }
 

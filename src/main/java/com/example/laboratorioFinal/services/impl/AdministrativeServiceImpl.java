@@ -151,6 +151,19 @@ public class AdministrativeServiceImpl implements AdministrativeService {
 
     }
 
+    //Reportes
+    public void allAdmin(Label cantProfes,Label cantAdmin){
+        String allAdmin = String.valueOf(adminArrayList.size());
+        String allTeacher = String.valueOf(tutorArrayList.size());
+        cantProfes.setText(allTeacher);
+        cantAdmin.setText(allAdmin);
+
+    }
+
+
+
+
+//Funciones aparte
 
     void fillInputTeacher( TableView<Teacher> tblProfes, TextField nombreProfesor, TextField idProfesor, ChoiceBox carreraProfesor, TextField antiProfesor, ChoiceBox materiaProfesor) {
         nombreProfesor.setText(teacher.getName());
@@ -208,6 +221,15 @@ public class AdministrativeServiceImpl implements AdministrativeService {
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void cargarProfe(TableView<Teacher> tblProfes){
+        tblProfes.setItems(teacherObservableList);
+        tblProfes.refresh();
+    }
+    public void cargarAdmin(TableView<Administrative> tblAdmin){
+        tblAdmin.setItems(administrativeObservableList);
+        tblAdmin.refresh();
     }
 
 }

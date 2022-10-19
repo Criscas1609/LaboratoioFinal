@@ -70,10 +70,11 @@ public class LoanViewController implements Initializable {
     private CheckBox interno;
 
     @FXML
-    private TextField nombreMonitorPrestamo;
+    private ChoiceBox<?> nombreEstudiante;
 
     @FXML
-    private TextField nombrePrestamista;
+    private ChoiceBox<?> nombreMonitor;
+
 
     @FXML
     private TableView<Loan> tblLoan;

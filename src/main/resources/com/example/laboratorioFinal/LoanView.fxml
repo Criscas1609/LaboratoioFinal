@@ -58,18 +58,18 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: white;">
                                              <children>
-                                                <Label text="Nombre">
+                                                <Label text="Estudiante">
                                                    <font>
                                                       <Font name="Times New Roman Bold Italic" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField id="nombrePrestamista" fx:id="nombrePrestamista" prefHeight="26.0" prefWidth="403.0" promptText="Nombre de persona a la que se le va a prestar" />
+                                                <ChoiceBox id="elemenPrestamo" fx:id="nombreEstudiante" prefHeight="26.0" prefWidth="204.0" />
                                                 <Label prefHeight="18.0" prefWidth="52.0" text="Nombre">
                                                    <font>
                                                       <Font name="Times New Roman Bold Italic" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField id="nombreMonitorPrestamo" fx:id="nombreMonitorPrestamo" prefHeight="26.0" prefWidth="313.0" promptText="Ingrese el nombre del monito que prestó" />
+                                                <ChoiceBox id="elemenPrestamo" fx:id="nombreMonitor" prefHeight="26.0" prefWidth="204.0" />
                                              </children>
                                              <padding>
                                                 <Insets left="10.0" />
@@ -82,13 +82,13 @@
                                                       <Font name="Times New Roman Bold Italic" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <DatePicker id="fechaPrestamo" fx:id="fechaPrestamo" onAction="#getDate" />
+                                                <DatePicker id="fechaPrestamo" fx:id="fechaPrestamo" />
                                                 <Label text="Fecha de entrega">
                                                    <font>
                                                       <Font name="Times New Roman Bold Italic" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <DatePicker id="entregaPrestamo" fx:id="entregaPrestamo" onAction="#getDelivery" />
+                                                <DatePicker id="entregaPrestamo" fx:id="entregaPrestamo" />
                                              </children>
                                              <padding>
                                                 <Insets left="10.0" />

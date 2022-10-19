@@ -166,6 +166,12 @@
                         </Button>
                      </children>
                   </AnchorPane>
+                  <Button id="editarProfesor" layoutX="686.0" layoutY="10.0" mnemonicParsing="false" onAction="#cargarEs" prefHeight="22.0" prefWidth="85.0" stylesheets="@css/loan.css" text="Cargar">
+                     <styleClass>
+                        <String fx:value="botonesCrear" />
+                        <String fx:value="botonesCambios" />
+                     </styleClass>
+                  </Button>
                </children>
             </AnchorPane>
          </center>

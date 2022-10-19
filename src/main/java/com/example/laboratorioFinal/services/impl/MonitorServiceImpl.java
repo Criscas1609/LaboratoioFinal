@@ -6,10 +6,8 @@ import com.example.laboratorioFinal.model.Student;
 import com.example.laboratorioFinal.services.MonitorService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.event.ActionEvent;
+import javafx.scene.control.*;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -71,6 +69,33 @@ public class MonitorServiceImpl implements MonitorService {
         }
     }
 
+    //Reportes
+
+    public void reportMonitor(Label cantMonitor){
+        String allMonitors = String.valueOf(monitorArrayList.size());
+        cantMonitor.setText(allMonitors);
+    }
+
+    public void monitorsCareer(Label cantMSoft, Label cantMIndus, Label cantMCivil) {
+        int softwareMonitors = 0;
+        int indusMonitors = 0;
+        int civilMonitors = 0;
+        for (Monitor monitor : monitorArrayList) {
+            if (monitor.getCareer().equals("Ingeniería de Software")) {
+                softwareMonitors++;
+            }
+            if (monitor.getCareer().equals("Ingeniería Industrial")) {
+                indusMonitors++;
+            }
+            if (monitor.getCareer().equals("Ingeniería Civil")){
+                civilMonitors++;
+            }
+        }
+        cantMSoft.setText(String.valueOf(softwareMonitors));
+        cantMIndus.setText(String.valueOf(indusMonitors));
+        cantMCivil.setText(String.valueOf(civilMonitors));
+    }
+
 
         //Funciones auxiliares
     public void fillTable(Monitor aux) {
@@ -99,5 +124,10 @@ public class MonitorServiceImpl implements MonitorService {
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void cargarMon(TableView<Monitor> tableMonitor) {
+        tableMonitor.setItems(monitorObservableList);
+        tableMonitor.refresh();
     }
 }

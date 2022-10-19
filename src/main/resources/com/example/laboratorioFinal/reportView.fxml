@@ -42,35 +42,37 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <Label layoutX="43.0" layoutY="65.0" text="Cantidad total de estudiantes" />
-                                    <Label layoutX="229.0" layoutY="65.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
-                                    <Label layoutX="43.0" layoutY="109.0" prefHeight="38.0" prefWidth="134.0" text="Cantidad total de ingeniería de software" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="229.0" layoutY="117.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
-                                    <Label layoutX="43.0" layoutY="177.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ingeniería industrial" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="229.0" layoutY="187.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
-                                    <Label layoutX="43.0" layoutY="233.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ingeniería civil" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="229.0" layoutY="243.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
-                                    <Label layoutX="43.0" layoutY="290.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ingeniería civil" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="229.0" layoutY="300.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
-                                    <Label layoutX="314.0" layoutY="64.0" text="Cantidad total de monitores" />
-                                    <Label layoutX="500.0" layoutY="64.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
-                                    <Label layoutX="314.0" layoutY="108.0" prefHeight="38.0" prefWidth="134.0" text="Cantidad total de ingeniería de software" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="500.0" layoutY="116.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
-                                    <Label layoutX="314.0" layoutY="176.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ingeniería industrial" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="500.0" layoutY="186.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
-                                    <Label layoutX="314.0" layoutY="232.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ingeniería civil" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="500.0" layoutY="242.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
-                                    <Label layoutX="314.0" layoutY="289.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ingeniería civil" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="500.0" layoutY="299.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label layoutX="314.0" layoutY="137.0" prefHeight="38.0" prefWidth="134.0" text="Cantidad total de ingeniería de software" textAlignment="CENTER" wrapText="true" />
+                                    <Label fx:id="cantMSoft" layoutX="500.0" layoutY="145.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" textAlignment="CENTER" wrapText="true" />
+                                    <Label layoutX="43.0" layoutY="94.0" text="Cantidad total de estudiantes" />
+                                    <Label fx:id="cantEs" layoutX="229.0" layoutY="94.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" textAlignment="CENTER" wrapText="true" />
+                                    <Label layoutX="43.0" layoutY="138.0" prefHeight="38.0" prefWidth="134.0" text="Cantidad total de ingeniería de software" textAlignment="CENTER" wrapText="true" />
+                                    <Label fx:id="cantSoft" layoutX="229.0" layoutY="146.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" textAlignment="CENTER" wrapText="true" />
+                                    <Label layoutX="43.0" layoutY="206.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ingeniería industrial" textAlignment="CENTER" wrapText="true" />
+                                    <Label fx:id="cantIndus" layoutX="229.0" layoutY="216.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" textAlignment="CENTER" wrapText="true" />
+                                    <Label layoutX="43.0" layoutY="262.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ingeniería civil" textAlignment="CENTER" wrapText="true" />
+                                    <Label fx:id="cantCivil" layoutX="229.0" layoutY="272.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" textAlignment="CENTER" wrapText="true" />
+                                    <Label layoutX="314.0" layoutY="93.0" text="Cantidad total de monitores" />
+                                    <Label fx:id="canMonitor" layoutX="500.0" layoutY="93.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" textAlignment="CENTER" wrapText="true" />
+                                    <Label layoutX="314.0" layoutY="205.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ingeniería industrial" textAlignment="CENTER" wrapText="true" />
+                                    <Label fx:id="cantMIndus" layoutX="500.0" layoutY="215.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" textAlignment="CENTER" wrapText="true" />
+                                    <Label layoutX="314.0" layoutY="261.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ingeniería civil" textAlignment="CENTER" wrapText="true" />
+                                    <Label fx:id="cantMCivil" layoutX="500.0" layoutY="271.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" textAlignment="CENTER" wrapText="true" />
                                     <Label layoutX="630.0" layoutY="168.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de profesores" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="816.0" layoutY="178.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantProfes" layoutX="816.0" layoutY="178.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" textAlignment="CENTER" wrapText="true" />
                                     <Label layoutX="630.0" layoutY="224.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de funcionarios" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="816.0" layoutY="234.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantAdmin" layoutX="816.0" layoutY="234.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" textAlignment="CENTER" wrapText="true" />
                                     <ImageView fitHeight="150.0" fitWidth="520.0" layoutX="266.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@photos/logo-scs-key1586676.png" />
                                        </image>
                                     </ImageView>
+                                    <Button id="botonBuscarE" layoutX="720.0" layoutY="61.0" mnemonicParsing="false" onAction="#loadPerson" prefHeight="40.0" prefWidth="100.0" stylesheets="@css/loan.css" text="Buscar">
+                                       <styleClass>
+                                          <String fx:value="botonesCambios" />
+                                          <String fx:value="botonesCrear" />
+                                       </styleClass>
+                                    </Button>
                                  </children>
                               </AnchorPane>
                            </content>
@@ -80,32 +82,38 @@
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <Label layoutX="75.0" layoutY="75.0" text="Cantidad total de elementos" />
-                                    <Label layoutX="261.0" layoutY="75.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantElements" layoutX="261.0" layoutY="75.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <Label layoutX="75.0" layoutY="119.0" prefHeight="38.0" prefWidth="134.0" text="Cantidad total de fichas" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="261.0" layoutY="127.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantFichas" layoutX="261.0" layoutY="127.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <Label layoutX="75.0" layoutY="187.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de piezas de metal" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="261.0" layoutY="197.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantMetal" layoutX="261.0" layoutY="197.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <Label layoutX="75.0" layoutY="243.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de esferas" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="261.0" layoutY="253.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantEsferas" layoutX="261.0" layoutY="253.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <Label layoutX="75.0" layoutY="300.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ruedas" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="261.0" layoutY="310.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantRuedas" layoutX="261.0" layoutY="310.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <Label layoutX="346.0" layoutY="68.0" prefHeight="40.0" prefWidth="148.0" text="Cantidad total de elementos disponibles" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="532.0" layoutY="74.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantDisponibles" layoutX="532.0" layoutY="74.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <Label layoutX="341.0" layoutY="127.0" prefHeight="38.0" prefWidth="158.0" text="Cantidad total de elementos no disponibles" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="532.0" layoutY="126.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantNoDis" layoutX="532.0" layoutY="126.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <Label layoutX="346.0" layoutY="186.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de ensamble" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="532.0" layoutY="196.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantEnsamble" layoutX="532.0" layoutY="196.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <Label layoutX="346.0" layoutY="242.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de estructura" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="532.0" layoutY="252.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantEstructura" layoutX="532.0" layoutY="252.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <Label layoutX="346.0" layoutY="299.0" prefHeight="39.0" prefWidth="143.0" text="Cantidad total de movimiento" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="532.0" layoutY="309.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="cantMov" layoutX="532.0" layoutY="309.0" prefHeight="18.0" prefWidth="41.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <Label layoutX="625.0" layoutY="205.0" prefHeight="39.0" prefWidth="143.0" text="Precio total de todos los elementos" textAlignment="CENTER" wrapText="true" />
-                                    <Label layoutX="791.0" layoutY="216.0" prefHeight="19.0" prefWidth="90.0" style="-fx-border-color: black;" styleClass="borde" />
+                                    <Label fx:id="precioTotal" layoutX="791.0" layoutY="216.0" prefHeight="19.0" prefWidth="90.0" style="-fx-border-color: black;" styleClass="borde" />
                                     <ImageView fitHeight="150.0" fitWidth="520.0" layoutX="261.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@photos/logo-scs-key1586676.png" />
                                        </image>
                                     </ImageView>
+                                    <Button id="botonBuscarE" layoutX="725.0" layoutY="65.0" mnemonicParsing="false" onAction="#loadElements" prefHeight="40.0" prefWidth="100.0" stylesheets="@css/loan.css" text="Buscar">
+                                       <styleClass>
+                                          <String fx:value="botonesCambios" />
+                                          <String fx:value="botonesCrear" />
+                                       </styleClass>
+                                    </Button>
                                  </children>
                               </AnchorPane>
                            </content>

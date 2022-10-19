@@ -149,6 +149,12 @@
                                                 <String fx:value="botonesCambios" />
                                              </styleClass>
                                           </Button>
+                                          <Button id="editarProfesor" layoutX="689.0" layoutY="14.0" mnemonicParsing="false" onAction="#cargarProfe" prefHeight="22.0" prefWidth="85.0" stylesheets="@css/loan.css" text="Cargar">
+                                             <styleClass>
+                                                <String fx:value="botonesCrear" />
+                                                <String fx:value="botonesCambios" />
+                                             </styleClass>
+                                          </Button>
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane layoutX="-3.0" layoutY="275.0" minHeight="0.0" minWidth="0.0" prefHeight="258.0" prefWidth="785.0">
@@ -289,6 +295,12 @@
                                        <styleClass>
                                           <String fx:value="botonesCambios" />
                                           <String fx:value="botonesCrear" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button id="editarProfesor" layoutX="670.0" layoutY="12.0" mnemonicParsing="false" onAction="#cargarAdmin" prefHeight="22.0" prefWidth="85.0" stylesheets="@css/loan.css" text="Cargar">
+                                       <styleClass>
+                                          <String fx:value="botonesCrear" />
+                                          <String fx:value="botonesCambios" />
                                        </styleClass>
                                     </Button>
                                  </children></AnchorPane>

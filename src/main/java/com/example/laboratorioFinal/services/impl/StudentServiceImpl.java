@@ -7,10 +7,7 @@ import com.example.laboratorioFinal.model.Teacher;
 import com.example.laboratorioFinal.services.StudentService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javax.swing.table.TableModel;
 import javax.swing.RowFilter;
@@ -111,6 +108,45 @@ public class StudentServiceImpl implements StudentService {
         }
     }
 
+    //Funciones de reportes
+
+    public void allStudent(Label cantEs){
+        String allStudents = String.valueOf(listStudent.size());
+        cantEs.setText(allStudents);
+    }
+
+    public void allSoftware(Label cantSoft) {
+        int softwareStudents = 0;
+        for (Student student : listStudent) {
+            if (student.getCareer().equals("Ingeniería de Software")) {
+                softwareStudents++;
+            }
+        }
+        cantSoft.setText(String.valueOf(softwareStudents));
+    }
+    public void allIndus(Label cantIndus) {
+        int indusStudents = 0;
+        for (Student student : listStudent) {
+            if (student.getCareer().equals("Ingeniería Industrial")) {
+                indusStudents++;
+            }
+        }
+        cantIndus.setText(String.valueOf(indusStudents));
+    }
+
+    public void allCivil(Label cantCivil) {
+        int civilStudents = 0;
+        for (Student student : listStudent) {
+            if (student.getCareer().equals("Ingeniería Civil")) {
+                civilStudents++;
+            }
+        }
+        cantCivil.setText(String.valueOf(civilStudents));
+    }
+
+
+
+
     //Funciones aparte
 
     void alert(String message, String title) {
@@ -133,6 +169,11 @@ public class StudentServiceImpl implements StudentService {
         id = String.valueOf(idEstudiante.getText());
         semester = String.valueOf(semestreEstudiante.getValue());
         career = String.valueOf(carreraEstudiante.getValue());
+    }
+
+    public void cargarEs(TableView<Student> tablePersonEs) {
+        tablePersonEs.setItems(studentObservableList);
+        tablePersonEs.refresh();
     }
 
 }

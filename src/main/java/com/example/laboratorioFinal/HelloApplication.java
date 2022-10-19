@@ -79,8 +79,8 @@ public class HelloApplication extends Application {
         stage.show();
     }
     public static void reportViews(ActionEvent event) throws IOException {
-    Parent root=FXMLLoader.load(Objects.requireNonNull(HelloApplication .class.getResource("ReportView.fxml")));
-    Stage stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+    Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication .class.getResource("reportView.fxml")));
+    Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     Scene scene = new Scene(root);
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.setScene(scene);

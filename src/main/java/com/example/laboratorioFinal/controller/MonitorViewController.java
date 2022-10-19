@@ -129,4 +129,9 @@ public class MonitorViewController implements Initializable{
         career = String.valueOf(this.carreraMonitor.getValue());
     }
 
+    @FXML
+    void cargarMon(ActionEvent event) {
+        mfc.cargarMon(tableMonitor);
+    }
+
 }
