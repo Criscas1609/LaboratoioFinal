@@ -119,6 +119,7 @@ public class ElementViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         colIdElem.setCellValueFactory(new PropertyValueFactory<>("id"));
+        conlCantiEle.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
         colEstadoEle.setCellValueFactory(new PropertyValueFactory<>("estado"));
         colPrecioElem.setCellValueFactory(new PropertyValueFactory<>("precio"));
         colNombreEle.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -142,11 +143,8 @@ public class ElementViewController implements Initializable {
     @FXML
     void crearElemen(ActionEvent event) {
         getData();
-        mfc.crearElemen(nombre,tipo,cantidad,uso,ubicacion,estado,id,precio);
-        tblElement.setItems(mfc.laboratory.getElementService().getObservableListElement());
-        tblElement.refresh();
+        mfc.crearElemen(tblElement,nombre,tipo,cantidad,uso,ubicacion,estado,id,precio);
 
-        alert("El elemento se ha creado","¡Exito!");
 
     }
     @FXML
@@ -164,42 +162,18 @@ public class ElementViewController implements Initializable {
 
     @FXML
     void editarElemen(ActionEvent event) {
-       /* getData();
-        Element aux= new Element(nombre,tipo,cantidad,uso,ubicacion,estado,id,precio);
-       seleccionar();
-        if (element == null){
-            alertError("Debe tener un elemento seleccionado","Error");
-        }else{
-            try {
-                getData();
-                mfc.editarElemen(nombre,tipo,cantidad,uso,ubicacion,estado,id,precio);
-                Element aux= new Element(nombre,tipo,cantidad,uso,ubicacion,estado,id,precio);
-                if (!this.mfc.getElementArrayList().contains(aux)) {
-                    fillTable(aux);
-                    alert("El elemento se ha editado","¡Exito!");
-                } else {
-                    alertError("El elemento ya existe","Error");
-                }
-            } catch (NumberFormatException e) {
-                alertError("Formato incorrecto","Error");
-            }
-        }*/
+       getData();
+       Element aux= new Element(nombre,tipo,cantidad,uso,ubicacion,estado,id,precio);
+       mfc.editarElemen(aux,tblElement);
+
     }
 
     @FXML
     void eliminarElemen(ActionEvent event) {
-        seleccionar();
-        if (element == null){
-            alertError("Debe tener un elemento seleccionado","Error");
-        }else {
-            this.mfc.getElementArrayList().remove(element);
-            this.tblElement.refresh();
-            alert("El elemento se ha eliminado","¡Exito!");
-        }
-    }
+        getData();
+        mfc.eliminarElemen(tblElement,cantidadElemen,usoElemen,ubiElemen,tipoElemen,precioElemen,nombreElemen,idElemen,estadoElemen);
 
-    @FXML
-    void seleccionar(/*MouseEvent event*/) {element= this.tblElement.getSelectionModel().getSelectedItem();}
+    }
 
     @FXML
     void getData(){
@@ -211,38 +185,6 @@ public class ElementViewController implements Initializable {
         estado = String.valueOf(this.estadoElemen.getValue());
         id = String.valueOf(this.idElemen.getText());
         precio = Integer.parseInt(this.precioElemen.getText());
-    }
-
-    /*@FXML
-    void fillTable(Element element1){
-        element.setNombre(element1.getNombre());
-        element.setCantidad(element1.getCantidad());
-        element.setEstado(element1.getEstado());
-        element.setId(element1.getId());
-        element.setPrecio(element1.getPrecio());
-        element.setTipo(element1.getTipo());
-        element.setUbicacion(element1.getUbicacion());
-        element.setUso(element1.getUso());
-
-    }*/
-
-    @FXML
-    void alertError(String message, String title){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setTitle(title);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
-    @FXML
-    void alert(String message, String title ){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(null);
-        alert.setTitle(title);
-        alert.setContentText(message);
-        alert.showAndWait();
-
     }
 
 }

@@ -35,13 +35,28 @@ public class ModelFactoryController implements ModelFactoryControllerService {
         laboratory.getElementService().crearElemen(tblElement,nombre,tipo,cantidad,uso,ubicacion,estado,id,precio);
     }
 
-    //Elementos funciones:
-//    public void crearElemen(String nombre, String tipo,int cantidad,String uso, String ubicacion, String estado,String id,int precio){
-//        laboratory.getElementService().crearElemen(nombre, tipo, cantidad, uso, ubicacion, estado, id, precio);
-//    }
-//    public void editarElemen(String nombre, String tipo,int cantidad,String uso, String ubicacion, String estado,String id,int precio){
-//        laboratory.getElementService().editarElemen(nombre, tipo, cantidad, uso, ubicacion, estado, id, precio);
-//    }
+    public void editarElemen(Element aux, TableView<Element> tblElement){
+        laboratory.getElementService().editarElemen(aux,tblElement);
+    }
+
+    public void seleccionarElement(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen, ChoiceBox ubiElemen, ChoiceBox tipoElemen, TextField precioElemen, TextField nombreElemen, TextField idElemen, ChoiceBox estadoElemen){
+        laboratory.getElementService().seleccionarElement(tblElement,cantidadElemen,usoElemen,ubiElemen,tipoElemen,precioElemen,nombreElemen,idElemen,estadoElemen);
+    }
+
+    public void buscarElemen(TableView<Element> tblElement, String name){
+        laboratory.getElementService().buscarElemen(tblElement, name);
+    }
+
+    @Override
+    public void eliminarElemen(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen, ChoiceBox ubiElemen, ChoiceBox tipoElemen, TextField precioElemen, TextField nombreElemen, TextField idElemen, ChoiceBox estadoElemen) {
+        laboratory.getElementService().eliminarElemen(tblElement,cantidadElemen,usoElemen,ubiElemen,tipoElemen,precioElemen,nombreElemen,idElemen,estadoElemen);
+    }
+
+    public void cargarElement(TableView<Element> tblElement){
+        laboratory.getElementService().cargarElement(tblElement);
+    }
+
+
 
     public ObservableList<Element>getElementArrayList(){return laboratory.getElementService().getObservableListElement();}
     public ObservableList<String>getTipoElement(){
@@ -62,6 +77,7 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     public void addTable(TableView<Student> tablePersonEs){
         laboratory.getStudentService().addTable(tablePersonEs);
     }
+
     public  void createStudent(String name, String id, String career, String semester){
         laboratory.getStudentService().createStudent(name, id, career, semester);
     }
@@ -126,14 +142,15 @@ public class ModelFactoryController implements ModelFactoryControllerService {
         laboratory.getAdministrativeService().eliminateTeacher(tblProfes, nombreProfesor, idProfesor, carreraProfesor, antiProfesor, materiaProfesor);
     }
     //Loan funciones:
+    public ObservableList<Loan>getLoanObservableList(){return laboratory.getLoanService().getLoanObservableList();}
     public void addLoan(TableView<Loan> tblLoan,String element,String amount,String dateLoan,String deliveryDate,String debtorName){
         laboratory.getLoanService().addLoan(tblLoan,element,amount,dateLoan,deliveryDate,debtorName);
     }
     public void finalizarPrestamo(String element, String amount, String dateLoan, String deliveryDate, String debtorName){
         laboratory.getLoanService().finalizarPrestamo(element, amount, dateLoan, deliveryDate, debtorName);
     }
-    public void eliminarPrstamo(TableView<Loan> tblLoan, TextField cantidadPrestamo, TextField nombrePrestamista, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo){
-        laboratory.getLoanService().eliminarPrestamo(tblLoan,cantidadPrestamo,nombrePrestamista,fechaPrestamo,entregaPrestamo,elemenPrestamo);
+    public void eliminarPrestamo(TableView<Loan> tblLoan, TextField cantidadPrestamo, ChoiceBox nombreEstudiante, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo){
+        laboratory.getLoanService().eliminarPrestamo(tblLoan,cantidadPrestamo,nombreEstudiante,fechaPrestamo,entregaPrestamo,elemenPrestamo);
     }
 
     // Monitor functions:

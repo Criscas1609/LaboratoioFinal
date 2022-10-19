@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import com.example.laboratorioFinal.HelloApplication;
 import com.example.laboratorioFinal.model.Loan;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -90,7 +91,7 @@ public class LoanViewController implements Initializable {
 
     @FXML
     void eliminarPrestamo(ActionEvent event) {
-        mfc.eliminarPrstamo(tblLoan,cantidadPrestamo,nombrePrestamista,fechaPrestamo,entregaPrestamo,elemenPrestamo);
+        mfc.eliminarPrestamo(tblLoan,cantidadPrestamo,nombreEstudiante,fechaPrestamo,entregaPrestamo,elemenPrestamo);
     }
 
     @FXML
@@ -104,11 +105,11 @@ public class LoanViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        colCantiLoan.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
-        colElementLoan.setCellValueFactory(new PropertyValueFactory<>("elemento"));
-        colEntregaLoan.setCellValueFactory(new PropertyValueFactory<>("entrega"));
-        colPrestamoLoan.setCellValueFactory(new PropertyValueFactory<>("prestamo"));
-        colDeudorLoan.setCellValueFactory(new PropertyValueFactory<>("deudor"));
+        colCantiLoan.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        colElementLoan.setCellValueFactory(new PropertyValueFactory<>("element"));
+        colEntregaLoan.setCellValueFactory(new PropertyValueFactory<>("deliveryDate"));
+        colPrestamoLoan.setCellValueFactory(new PropertyValueFactory<>("dateLoan"));
+        colDeudorLoan.setCellValueFactory(new PropertyValueFactory<>("debtorName"));
 
         /*elemenPrestamo.setValue("");
         elemenPrestamo.setItems(mfc.getElementLoanList());*/
@@ -121,43 +122,19 @@ public class LoanViewController implements Initializable {
         amount = String.valueOf(this.cantidadPrestamo.getText());
         dateLoan = String.valueOf(this.fechaPrestamo.getValue());
         deliveryDate = String.valueOf(this.entregaPrestamo.getValue());
-        debtorName = String.valueOf(this.nombrePrestamista.getText());
+        debtorName = String.valueOf(this.nombreEstudiante.getValue());
 
     }
     /*@FXML
-    void fillTable(Loan loan1){
-        loan.setAmount(loan1.getAmount());
-        loan.setElement(loan1.getElement());
-        loan.setDateLoan(loan1.getDateLoan());
-        loan.setDeliveryDate(loan1.getDeliveryDate());
-        loan.setDebtorName(loan1.getDebtorName());
-    }*/
-    /*@FXML
-    void alertError(String message, String title){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setTitle(title);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-    @FXML
-    void alert(String message, String title ){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(null);
-        alert.setTitle(title);
-        alert.setContentText(message);
-        alert.showAndWait();
-
-    }*/
-    @FXML
     void getDate(ActionEvent event) {
         LocalDate myDate= fechaPrestamo.getValue();
         colPrestamoLoan.setText(String.valueOf(myDate));
+
     }
 
     @FXML
     void getDelivery(ActionEvent event) {
 
-    }
+    }*/
 
 }

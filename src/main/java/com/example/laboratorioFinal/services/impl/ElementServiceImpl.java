@@ -92,12 +92,11 @@ public class ElementServiceImpl implements ElementService{
 
 
     public void eliminarElemen(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen, ChoiceBox ubiElemen, ChoiceBox tipoElemen, TextField precioElemen, TextField nombreElemen, TextField idElemen, ChoiceBox estadoElemen) {
-        seleccionar(tblElement, cantidadElemen, usoElemen, ubiElemen, tipoElemen, precioElemen, nombreElemen, idElemen, estadoElemen);
         if (element == null){
             alertError("Debe tener un elemento seleccionado","Error");
         }else {
             elementObservableList.remove(element);
-            elementObservableList.remove(element);
+            listElement.remove(element);
             tblElement.refresh();
             alertAT("El elemento se ha eliminado","¡Exito!");
         }

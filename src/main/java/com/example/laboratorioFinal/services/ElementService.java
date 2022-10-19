@@ -11,7 +11,7 @@ public interface ElementService {
 
     void crearElemen(TableView<Element> tblElement, String nombre, String tipo, int cantidad, String uso, String ubicacion, String estado, String id, int precio);
     void editarElemen(Element aux, TableView<Element> tblElement);
-    void seleccionar(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen,ChoiceBox ubiElemen,ChoiceBox tipoElemen,TextField precioElemen,TextField nombreElemen,TextField idElemen,ChoiceBox estadoElemen);
+    void seleccionarElement(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen,ChoiceBox ubiElemen,ChoiceBox tipoElemen,TextField precioElemen,TextField nombreElemen,TextField idElemen,ChoiceBox estadoElemen);
     void eliminarElemen(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen,ChoiceBox ubiElemen,ChoiceBox tipoElemen,TextField precioElemen,TextField nombreElemen,TextField idElemen,ChoiceBox estadoElemen);
     void buscarElemen(TableView<Element> tblElement, String name);
     void cargarElement(TableView<Element> tblElement);

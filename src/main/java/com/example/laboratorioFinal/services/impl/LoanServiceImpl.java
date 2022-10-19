@@ -36,8 +36,10 @@ public class LoanServiceImpl implements LoanService {
 
     public void addLoan( TableView<Loan> tblLoan,String debtorName,String element,String amount, String dateLoan,String deliveryDate) {
         Loan loan = new Loan(debtorName, element, amount, dateLoan, deliveryDate);
+        System.out.println(loan.getDateLoan());
         loanObservableList.add(loan);
         tblLoan.setItems(loanObservableList);
+        tblLoan.refresh();
         alertAT("El prestamo se ha añadido","¡Exito!");
     }
 
@@ -48,22 +50,22 @@ public class LoanServiceImpl implements LoanService {
         alertAT("El prestamo se ha finalizado y guardado exitosamente","¡Exito!");
     }
 
-    @Override
-    public void seleccionar(TableView<Loan> tblLoan, TextField cantidadPrestamo, TextField nombrePrestamista, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo) {
+
+    public void seleccionar(TableView<Loan> tblLoan, TextField cantidadPrestamo, ChoiceBox nombreEstudiante, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo) {
         loan= tblLoan.getSelectionModel().getSelectedItem();
-        fillInputLoan(loan,tblLoan,cantidadPrestamo,nombrePrestamista,fechaPrestamo,entregaPrestamo,elemenPrestamo);
+        fillInputLoan(loan,tblLoan,cantidadPrestamo,nombreEstudiante,fechaPrestamo,entregaPrestamo,elemenPrestamo);
     }
-    void fillInputLoan(Loan loan1, TableView<Loan> tblLoan,TextField cantidadPrestamo, TextField nombrePrestamista, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo){
+    void fillInputLoan(Loan loan1, TableView<Loan> tblLoan,TextField cantidadPrestamo, ChoiceBox nombreEstudiante, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo){
         cantidadPrestamo.setText(loan1.getAmount());
-        nombrePrestamista.setText(loan1.getDebtorName());
+        nombreEstudiante.setValue(loan1.getDebtorName());
         fechaPrestamo.setId(loan1.getDateLoan());
         entregaPrestamo.setId(loan1.getDeliveryDate());
         elemenPrestamo.setValue(loan1.getElement());
     }
 
-    @Override
-    public void eliminarPrestamo(TableView<Loan> tblLoan, TextField cantidadPrestamo, TextField nombrePrestamista, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo) {
-        seleccionar(tblLoan,cantidadPrestamo,nombrePrestamista,fechaPrestamo,entregaPrestamo,elemenPrestamo);
+
+    public void eliminarPrestamo(TableView<Loan> tblLoan, TextField cantidadPrestamo, ChoiceBox nombreEstudiante, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo) {
+        seleccionar(tblLoan,cantidadPrestamo,nombreEstudiante,fechaPrestamo,entregaPrestamo,elemenPrestamo);
         if (loan == null){
             alertError("Debe tener un elemento seleccionado","Error");
         }else {
