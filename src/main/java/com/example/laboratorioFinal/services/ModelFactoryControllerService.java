@@ -1,7 +1,10 @@
 package com.example.laboratorioFinal.services;
 
 import com.example.laboratorioFinal.model.*;
+import javafx.collections.ObservableList;
 import javafx.scene.control.*;
+
+import java.util.ArrayList;
 
 public interface ModelFactoryControllerService {
     //login
@@ -31,9 +34,12 @@ public interface ModelFactoryControllerService {
     void eliminateTeacher(TableView<Teacher> tblProfes, TextField nombreProfesor, TextField idProfesor, ChoiceBox carreraProfesor, TextField antiProfesor, ChoiceBox materiaProfesor);
 
     //Loan
-    void addLoan(TableView<Loan> tblLoan, String element, String amount, String dateLoan, String deliveryDate, String debtorName);
-    void finalizarPrestamo(String element, String amount, String dateLoan, String deliveryDate, String debtorName);
-    void eliminarPrestamo(TableView<Loan> tblLoan, TextField cantidadPrestamo, ChoiceBox nombreEstudiante, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo);
+    void addLoan(String element,String amount,TableView<LoanDetail>tblLoan);
+    void finalizarPrestamo(String dateLoan, String deliveryDate, String debtorName,String tipo, String nombreMonitor);
+    void eliminarPrestamo(TableView<LoanDetail> tblLoan, TextField cantidadPrestamo,ChoiceBox elemenPrestamo);
+    void totalLoan(Label totalPrestamo);
+    void botonBuscar(String name,TableView<Loan> tblReportLoan);
+    void bestStudent(Label prestamoEs, ArrayList<Student> studentArrayList);
 
     //Monitor
     void newMonitor(String name, String id, String career, String semester);
@@ -48,6 +54,8 @@ public interface ModelFactoryControllerService {
     void buscarElemen(TableView<Element> tblElement, String name);
     void eliminarElemen(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen,ChoiceBox ubiElemen,ChoiceBox tipoElemen,TextField precioElemen,TextField nombreElemen,TextField idElemen,ChoiceBox estadoElemen);
     void seleccionarElement(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen, ChoiceBox ubiElemen, ChoiceBox tipoElemen, TextField precioElemen, TextField nombreElemen, TextField idElemen, ChoiceBox estadoElemen);
+
+
     //Reportes
 
     void allStudent(Label cantEs);

@@ -14,6 +14,8 @@ public interface StudentService {
     ObservableList<Student> getStudentObservableList();
     ObservableList<String> getCareerStudent();
     ObservableList<String> getSemeStudent();
+    ObservableList<String> getListStudentNames();
+    ArrayList<Student> getListStudent();
     void searchStudent(String name, TableView<Student> tablePersonEs);
     void addTable(TableView<Student> tablePersonEs);
     void editStudent(TableView<Student> tablePersonEs, TextField nombreEstudiante, TextField idEstudiante, ChoiceBox<String> semestreEstudiante, ChoiceBox<String> carreraEstudiante, Student student);

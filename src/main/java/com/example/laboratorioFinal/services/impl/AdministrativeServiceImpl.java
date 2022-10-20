@@ -18,8 +18,24 @@ import java.util.Collection;
 import java.util.Objects;
 
 public class AdministrativeServiceImpl implements AdministrativeService {
-    public List<Teacher> tutorArrayList = new ArrayList<>();
-    public List<Administrative> adminArrayList = new ArrayList<>();
+    private List<Teacher> tutorArrayList = new ArrayList<>();
+    private List<Administrative> adminArrayList = new ArrayList<>();
+
+    public List<Teacher> getTutorArrayList() {
+        return tutorArrayList;
+    }
+
+    public void setTutorArrayList(List<Teacher> tutorArrayList) {
+        this.tutorArrayList = tutorArrayList;
+    }
+
+    public List<Administrative> getAdminArrayList() {
+        return adminArrayList;
+    }
+
+    public void setAdminArrayList(List<Administrative> adminArrayList) {
+        this.adminArrayList = adminArrayList;
+    }
 
     private Administrative admin;
     private Teacher teacher;

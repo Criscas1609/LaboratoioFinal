@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -64,7 +63,7 @@
                                                    </font>
                                                 </Label>
                                                 <ChoiceBox id="elemenPrestamo" fx:id="nombreEstudiante" prefHeight="26.0" prefWidth="204.0" />
-                                                <Label prefHeight="18.0" prefWidth="52.0" text="Nombre">
+                                                <Label prefHeight="18.0" prefWidth="52.0" text="Monitor">
                                                    <font>
                                                       <Font name="Times New Roman Bold Italic" size="12.0" />
                                                    </font>
@@ -113,16 +112,7 @@
                                                       <Font name="Times New Roman Bold Italic" size="12.0" />
                                                    </font>
                                                 </Label>
-                                                <CheckBox id="internoExterno" fx:id="externo" mnemonicParsing="false" text="Externo">
-                                                   <font>
-                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
-                                                   </font>
-                                                </CheckBox>
-                                                <CheckBox id="internoExterno" fx:id="interno" mnemonicParsing="false" text="Interno">
-                                                   <font>
-                                                      <Font name="Times New Roman Bold Italic" size="12.0" />
-                                                   </font>
-                                                </CheckBox>
+                                                <ChoiceBox id="elemenPrestamo" fx:id="tipoPrestamo" prefHeight="26.0" prefWidth="204.0" />
                                              </children>
                                              <padding>
                                                 <Insets left="10.0" />
@@ -153,9 +143,6 @@
                                        <columns>
                                           <TableColumn fx:id="colElementLoan" prefWidth="273.60001224279404" text="Elemento" />
                                           <TableColumn fx:id="colCantiLoan" prefWidth="110.4000244140625" text="Cantidad" />
-                                          <TableColumn fx:id="colPrestamoLoan" prefWidth="180.00003051757812" text="Fecha de prestamo" />
-                                          <TableColumn fx:id="colEntregaLoan" prefWidth="168.800048828125" text="Fecha de entrega" />
-                                          <TableColumn fx:id="colDeudorLoan" prefWidth="165.60003662109375" text="Deudor" />
                                        </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

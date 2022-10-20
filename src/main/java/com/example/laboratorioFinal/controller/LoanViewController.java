@@ -7,7 +7,9 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import com.example.laboratorioFinal.HelloApplication;
+import com.example.laboratorioFinal.model.Element;
 import com.example.laboratorioFinal.model.Loan;
+import com.example.laboratorioFinal.model.LoanDetail;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -56,7 +58,7 @@ public class LoanViewController implements Initializable {
     private TableColumn<?, ?> colPrestamoLoan;
 
     @FXML
-    private ChoiceBox<?> elemenPrestamo;
+    private ChoiceBox<String> elemenPrestamo;
 
     @FXML
     private DatePicker entregaPrestamo;
@@ -71,32 +73,35 @@ public class LoanViewController implements Initializable {
     private CheckBox interno;
 
     @FXML
-    private ChoiceBox<?> nombreEstudiante;
+    private ChoiceBox<String> nombreEstudiante;
 
     @FXML
-    private ChoiceBox<?> nombreMonitor;
-
+    private ChoiceBox<String> nombreMonitor;
 
     @FXML
-    private TableView<Loan> tblLoan;
+    private ChoiceBox<String> tipoPrestamo;
+
+    @FXML
+    private TableView<LoanDetail> tblLoan;
 
     @FXML
     void addLoan(ActionEvent event) {
         getData();
-        mfc.addLoan(tblLoan,debtorName, element, amount, dateLoan, deliveryDate);
-        tblLoan.refresh();
-
+        mfc.addLoan(element, amount,tblLoan);
         /*alert("El prestamo se ha añadido","¡Exito!");*/
     }
 
     @FXML
     void eliminarPrestamo(ActionEvent event) {
-        mfc.eliminarPrestamo(tblLoan,cantidadPrestamo,nombreEstudiante,fechaPrestamo,entregaPrestamo,elemenPrestamo);
+        mfc.eliminarPrestamo(tblLoan,cantidadPrestamo,elemenPrestamo);
     }
 
     @FXML
     void finalizarPrestamo(ActionEvent event) {
-        mfc.finalizarPrestamo(debtorName, element, amount, dateLoan, deliveryDate);
+        getData();
+        mfc.finalizarPrestamo(dateLoan,deliveryDate,debtorName,tipo,monitorName);
+        tblLoan.setItems(mfc.laboratory.getLoanService().getObservableListElement());
+        tblLoan.refresh();
     }
     @FXML
     void MainView(ActionEvent event) throws IOException {
@@ -107,23 +112,28 @@ public class LoanViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         colCantiLoan.setCellValueFactory(new PropertyValueFactory<>("amount"));
         colElementLoan.setCellValueFactory(new PropertyValueFactory<>("element"));
-        colEntregaLoan.setCellValueFactory(new PropertyValueFactory<>("deliveryDate"));
-        colPrestamoLoan.setCellValueFactory(new PropertyValueFactory<>("dateLoan"));
-        colDeudorLoan.setCellValueFactory(new PropertyValueFactory<>("debtorName"));
 
-        /*elemenPrestamo.setValue("");
-        elemenPrestamo.setItems(mfc.getElementLoanList());*/
+       elemenPrestamo.getItems().addAll(mfc.laboratory.getElementService().getListNames());
+       nombreEstudiante.getItems().addAll(mfc.laboratory.getStudentService().getListStudentNames());
+       nombreMonitor.getItems().addAll(mfc.laboratory.getMonitorService().getListMonitorNames());
+
+        tipoPrestamo.setValue("interno");
+        tipoPrestamo.setItems(mfc.laboratory.getLoanService().getTipoList());
+        //cantidadPrestamo.(mfc.laboratory.getLoanService().getObservableListElement());
+
     }
 
 
 
     @FXML
     void getData(){
+        monitorName = String.valueOf(this.nombreMonitor.getValue());
         amount = String.valueOf(this.cantidadPrestamo.getText());
         dateLoan = String.valueOf(this.fechaPrestamo.getValue());
         deliveryDate = String.valueOf(this.entregaPrestamo.getValue());
         debtorName = String.valueOf(this.nombreEstudiante.getValue());
-
+        element = String.valueOf(this.elemenPrestamo.getValue());
+        tipo=String.valueOf(this.tipoPrestamo.getValue());
     }
     /*@FXML
     void getDate(ActionEvent event) {

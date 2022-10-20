@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public interface MonitorService {
     void createMonitor(String name, String id, String career, String semester);
     ObservableList <Monitor> getMonitorObservableList();
+    ObservableList<String> getListMonitorNames();
     void selecccionarMonitor(TableView<Monitor> tableMonitor, TextField nombreMonitor, ChoiceBox semestreMonitor, TextField codigoMonitor, ChoiceBox carreraMonitor);
     void searchMonitor(String name, TableView<Monitor> tableMonitor);
     void editMonitor(Monitor aux, TableView<Monitor> tableMonitor);

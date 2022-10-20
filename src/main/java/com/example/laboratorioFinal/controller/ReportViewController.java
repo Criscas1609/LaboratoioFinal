@@ -1,6 +1,9 @@
 package com.example.laboratorioFinal.controller;
 
 import com.example.laboratorioFinal.HelloApplication;
+import com.example.laboratorioFinal.model.Loan;
+import com.example.laboratorioFinal.model.LoanDetail;
+import com.example.laboratorioFinal.model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -9,10 +12,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 
 public class ReportViewController {
 
     ModelFactoryController mfc = ModelFactoryController.getInstance();
+
+    String amount;
+    String name;
 
     @FXML
     private Label canMonitor;
@@ -75,33 +84,42 @@ public class ReportViewController {
     private Label cantSoft;
     @FXML
     private Label precioTotal;
-    @FXML
-    private TableColumn<?, ?> colCantiLoan;
+
 
     @FXML
-    private TableColumn<?, ?> colDeudorLoan;
+    private Label prestamoElement;
 
     @FXML
-    private TableColumn<?, ?> colDeudorLoan1;
+    private Label prestamoEs;
 
     @FXML
-    private TableColumn<?, ?> colDeudorLoan11;
+    private Label prestamosMon;
 
     @FXML
-    private TableColumn<?, ?> colElementLoan;
+    private Label totalPrestamo;
 
     @FXML
-    private TableColumn<?, ?> colEntregaLoan;
+    private TableView<Loan> tblReportLoan;
 
     @FXML
-    private TableColumn<?, ?> colPrestamoLoan;
+    private TableColumn<?, ?> tipoPrestamoTab;
 
+    @FXML
+    private TableColumn<LoanDetail, LoanDetail> cantidadElementsTab;
+
+    @FXML
+    private TableColumn<?, ?> monitorTab;
+
+    @FXML
+    private TableColumn<?, ?> deudorTab;
+
+    @FXML
+    private TableColumn<?, ?> entregaPrestamoTab;
+
+    @FXML
+    private TableColumn<?, ?> fechaPrestamoTab;
     @FXML
     private TextField inputBuscar;
-
-    @FXML
-    private TableView<?> tblLoan;
-
 
     @FXML
     void botonBuscar(ActionEvent event) {
@@ -113,6 +131,9 @@ public class ReportViewController {
     void MainView(ActionEvent event) throws IOException {
         HelloApplication.mainViews(event);
     }
+
+
+
 
 
 
@@ -239,6 +260,40 @@ public class ReportViewController {
         mfc.totalPrice(precioTotal);
     }
 
+    //Reporte de prestamos
+
+    @FXML
+    void botonCargar(ActionEvent event) {
+        cargarTabla();
+        totalLoan();
+        bestStudent();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        deudorTab.setCellValueFactory(new PropertyValueFactory<>("debtorName"));
+        monitorTab.setCellValueFactory(new PropertyValueFactory<>("nombreMonitor"));
+        fechaPrestamoTab.setCellValueFactory(new PropertyValueFactory<>("dateLoan"));
+        entregaPrestamoTab.setCellValueFactory(new PropertyValueFactory<>("deliveryDate"));
+        tipoPrestamoTab.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+
+
+    }
+    @FXML
+    void cargarTabla(){
+        tblReportLoan.setItems(mfc.laboratory.getLoanService().getLoanReportList());
+        tblReportLoan.refresh();
+    }
+    @FXML
+    void bestStudent(){
+        mfc.bestStudent(prestamoEs,mfc.laboratory.getStudentService().getListStudent());
+    }
+
+    @FXML
+    void totalLoan(){
+        mfc.totalLoan(totalPrestamo);
+    }
 
 }
 

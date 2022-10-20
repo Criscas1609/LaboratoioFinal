@@ -22,12 +22,23 @@ public class StudentServiceImpl implements StudentService {
     String career;
     String semester;
 
-    private ArrayList<Student> listStudent = new ArrayList<>();
+    public Student getStudentService() {
+        return studentService;
+    }
 
+
+    public ArrayList<Student> getListStudent() {
+        return listStudent;
+    }
+
+    ObservableList<String> listStudentNames = FXCollections.observableArrayList();
     ObservableList<Student> studentObservableList = FXCollections.observableArrayList();
     ObservableList<String> careerStudent = FXCollections.observableArrayList("Ingeniería de Software", "Ingeniería Industrial", "Ingeniería Civil");
     ObservableList<String> semeStudent = FXCollections.observableArrayList("I", "II", "III", "IV", "V", "VI", "VII", "VIII");
 
+    public ObservableList<String> getListStudentNames() {
+        return listStudentNames;
+    }
 
     public ObservableList<Student> getStudentObservableList() {
         return studentObservableList;
@@ -46,6 +57,7 @@ public class StudentServiceImpl implements StudentService {
         Student person = new Student(name, id, career, semester);
         studentObservableList.add(person);
         listStudent.add(person);
+        listStudentNames.add(person.getName());
     }
 
     public void selectionStudent(TableView<Student> tablePersonEs,TextField nombreEstudiante, TextField idEstudiante, ChoiceBox<String> semestreEstudiante, ChoiceBox<String> carreraEstudiante) {
@@ -73,7 +85,6 @@ public class StudentServiceImpl implements StudentService {
         } else {
             try {
                 if (!studentObservableList.contains(studentaux)) {
-                    System.out.println(studentaux.getName());
                     fillTable(studentaux);
                     tablePersonEs.refresh();
                     alert("El estudiante se ha editado", "¡Exito!");
@@ -104,6 +115,7 @@ public class StudentServiceImpl implements StudentService {
             studentObservableList.remove(studentService);
             listStudent.remove(studentService);
             tablePersonEs.refresh();
+            listStudentNames.remove(studentService.getName());
             alert("Se ha eliminado correctamente", "Exito");
         }
     }

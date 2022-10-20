@@ -21,7 +21,17 @@ public class ElementServiceImpl implements ElementService{
     String estado;
     String id;
     int precio;
-    private List<Element> listElement  = new ArrayList<>();
+    private ArrayList<Element> listElement = new ArrayList<>();
+    ObservableList<String> listNames = FXCollections.observableArrayList();
+
+    @Override
+    public ObservableList<String> getListNames() {
+        return listNames;
+    }
+
+    public void setListNames(ObservableList<String> listNames) {
+        this.listNames = listNames;
+    }
 
     public ElementServiceImpl() {
         this.listElement = listElement;
@@ -31,20 +41,39 @@ public class ElementServiceImpl implements ElementService{
         return listElement;
     }
 
-    public void setListElement(List<Element> listElement) {
+
+
+
+    public void setListElement(ArrayList<Element> listElement) {
         this.listElement = listElement;
     }
 
-    ObservableList<Element> elementObservableList= FXCollections.observableArrayList();
-    ObservableList<String>tipoElemenList= FXCollections.observableArrayList("Fichas","Piezas_Metal","Esferas","Ruedas");
-    ObservableList<String> usoElementList = FXCollections.observableArrayList("Ensamble","Estructura","Movimiento");
-    ObservableList<String> ubicationElementList = FXCollections.observableArrayList("A1","B1","C1");
-    ObservableList<String> stateElementList = FXCollections.observableArrayList("Disponible","No Disponible");
-    public ObservableList<Element> getObservableListElement() {return elementObservableList;}
-    public ObservableList<String> getTipoElemenList(){return tipoElemenList;}
-    public ObservableList<String> getUsoElement(){return usoElementList;}
-    public ObservableList<String> getUbicationElement() {return ubicationElementList;}
-    public ObservableList<String> getStateElement() {return stateElementList;}
+    /*public ObservableList<String>getListNames() {return listNames;}*/
+    ObservableList<Element> elementObservableList = FXCollections.observableArrayList();
+    ObservableList<String> tipoElemenList = FXCollections.observableArrayList("Fichas", "Piezas_Metal", "Esferas", "Ruedas");
+    ObservableList<String> usoElementList = FXCollections.observableArrayList("Ensamble", "Estructura", "Movimiento");
+    ObservableList<String> ubicationElementList = FXCollections.observableArrayList("A1", "B1", "C1");
+    ObservableList<String> stateElementList = FXCollections.observableArrayList("Disponible", "No Disponible");
+
+    public ObservableList<Element> getObservableListElement() {
+        return elementObservableList;
+    }
+
+    public ObservableList<String> getTipoElemenList() {
+        return tipoElemenList;
+    }
+
+    public ObservableList<String> getUsoElement() {
+        return usoElementList;
+    }
+
+    public ObservableList<String> getUbicationElement() {
+        return ubicationElementList;
+    }
+
+    public ObservableList<String> getStateElement() {
+        return stateElementList;
+    }
 
 
     public void crearElemen(TableView<Element> tblElement, String nombre, String tipo, int cantidad, String uso, String ubicacion, String estado, String id, int precio) {
@@ -52,6 +81,7 @@ public class ElementServiceImpl implements ElementService{
         System.out.println(element.getNombre());
         elementObservableList.add(element);
         listElement.add(element);
+        listNames.add(element.getNombre());
         tblElement.setItems(elementObservableList);
         tblElement.refresh();
         alertAT("El elemento se ha creado","¡Exito!");
@@ -66,7 +96,8 @@ public class ElementServiceImpl implements ElementService{
                 if (!elementObservableList.contains(aux)) {
                     fillTable(aux);
                     tblElement.refresh();
-                    alertAT("El elemento se ha editado","¡Exito!");
+                    // editListNames(aux);
+                    alertAT("El elemento se ha editado", "¡Exito!");
                 } else {
                     alertError("El elemento ya existe","Error");
                 }
@@ -97,10 +128,13 @@ public class ElementServiceImpl implements ElementService{
         }else {
             elementObservableList.remove(element);
             listElement.remove(element);
+            listNames.remove(element.getNombre());
             tblElement.refresh();
             alertAT("El elemento se ha eliminado","¡Exito!");
         }
     }
+    //Ciclo para el prestamo
+
 
 
     //Reportes
@@ -219,7 +253,6 @@ public class ElementServiceImpl implements ElementService{
         element.setTipo(element1.getTipo());
         element.setUbicacion(element1.getUbicacion());
         element.setUso(element1.getUso());
-
     }
     void fillInput(Element elemen, TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen, ChoiceBox ubiElemen, ChoiceBox tipoElemen, TextField precioElemen, TextField nombreElemen, TextField idElemen, ChoiceBox estadoElemen){
         cantidadElemen.setText(String.valueOf(elemen.getCantidad()));
@@ -249,7 +282,34 @@ public class ElementServiceImpl implements ElementService{
     }
 
     public void cargarElement(TableView<Element> tblElement) {
+
         tblElement.setItems(elementObservableList);
         tblElement.refresh();
+
     }
+
+    public void editElement(Element element) {
+        for (Element list : listElement) {
+            if (list.getNombre() == (element.getNombre())) {
+                list.setUso(element.getUso());
+                list.setUbicacion(element.getUbicacion());
+                list.setTipo(element.getTipo());
+                list.setId(element.getId());
+                list.setEstado(element.getEstado());
+                list.setCantidad(element.getCantidad());
+                list.setPrecio(element.getPrecio());
+                list.setNombre(element.getNombre());
+                editListNames();
+            }
+        }
+    }
+
+    public void editListNames() {
+        listNames.clear();
+        for (Element elem : listElement) {
+            listNames.add(elem.getNombre());
+            System.out.println(elem.getNombre());
+        }
+    }
+
 }

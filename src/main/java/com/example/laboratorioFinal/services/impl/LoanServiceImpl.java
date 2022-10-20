@@ -1,6 +1,8 @@
 package com.example.laboratorioFinal.services.impl;
 import com.example.laboratorioFinal.model.Element;
 import com.example.laboratorioFinal.model.Loan;
+import com.example.laboratorioFinal.model.LoanDetail;
+import com.example.laboratorioFinal.model.Student;
 import com.example.laboratorioFinal.services.LoanService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,20 +12,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoanServiceImpl implements LoanService {
-    private Loan loan;
+    private LoanDetail loanDetail;
     String element;
     String amount;
     String dateLoan;
     String deliveryDate;
     String debtorName;
 
-    private List<Loan> listLoan = new ArrayList<>();
+    private ArrayList<Loan> listLoan = new ArrayList<>();
+    private ArrayList<LoanDetail> listElement= new ArrayList<>();
+
+    private ObservableList<Loan> loanReportList = FXCollections.observableArrayList();
+
+    public ObservableList<Loan> getLoanReportList() {
+        return loanReportList;
+    }
+
+    private ObservableList<LoanDetail> observableListElement = FXCollections.observableArrayList();
+
+    public ObservableList<LoanDetail> getObservableListElement() {
+        return observableListElement;
+    }
+
+    public ArrayList<LoanDetail> getListElement() {
+        return listElement;
+    }
+
+    public void setListElement(ArrayList<LoanDetail> listElement) {
+        this.listElement = listElement;
+    }
 
     public LoanServiceImpl() {this.listLoan = listLoan;}
 
-    public List<Loan> getListLoan() {return listLoan;}
+    public ArrayList<Loan> getListLoan() {return listLoan;}
 
-    public void setListLoan(List<Loan> listLoan) {this.listLoan = listLoan;}
+    public void setListLoan(ArrayList<Loan> listLoan) {this.listLoan = listLoan;}
 
     ObservableList<String> elementLoanList = FXCollections.observableArrayList("");
     ObservableList<Loan> loanObservableList= FXCollections.observableArrayList();
@@ -34,33 +57,36 @@ public class LoanServiceImpl implements LoanService {
     public ObservableList<Loan> getLoanObservableList() {return loanObservableList;}
 
 
-    public void addLoan( TableView<Loan> tblLoan,String debtorName,String element,String amount, String dateLoan,String deliveryDate) {
-        Loan loan = new Loan(debtorName, element, amount, dateLoan, deliveryDate);
-        System.out.println(loan.getDateLoan());
-        loanObservableList.add(loan);
-        tblLoan.setItems(loanObservableList);
+    public void addLoan(String element, String amount,TableView<LoanDetail> tblLoan) {
+
+        LoanDetail detail = new LoanDetail(element,amount);
+        listElement.add(detail);
+        observableListElement.add(detail);
+        tblLoan.setItems(observableListElement);
         tblLoan.refresh();
-        alertAT("El prestamo se ha añadido","¡Exito!");
+        alertAT("El elemento se ha añadido a tu prestamo","¡Exito!");
     }
 
     @Override
     public void finalizarPrestamo(String element, String amount, String dateLoan, String deliveryDate, String debtorName) {
         Loan loan = new Loan(debtorName, element, amount, dateLoan, deliveryDate);
         listLoan.add(loan);
+        loanReportList.add(loan);
+        listElement.clear();
+        observableListElement.clear();
+
         alertAT("El prestamo se ha finalizado y guardado exitosamente","¡Exito!");
     }
 
-
-    public void seleccionar(TableView<Loan> tblLoan, TextField cantidadPrestamo, ChoiceBox nombreEstudiante, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo) {
-        loan= tblLoan.getSelectionModel().getSelectedItem();
-        fillInputLoan(loan,tblLoan,cantidadPrestamo,nombreEstudiante,fechaPrestamo,entregaPrestamo,elemenPrestamo);
+    public void seleccionar(TableView<LoanDetail> tblLoan, TextField cantidadPrestamo, ChoiceBox elemenPrestamo) {
+        loanDetail = tblLoan.getSelectionModel().getSelectedItem();
+        fillInputLoan(loanDetail,tblLoan,cantidadPrestamo,elemenPrestamo);
     }
-    void fillInputLoan(Loan loan1, TableView<Loan> tblLoan,TextField cantidadPrestamo, ChoiceBox nombreEstudiante, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo){
-        cantidadPrestamo.setText(loan1.getAmount());
-        nombreEstudiante.setValue(loan1.getDebtorName());
-        fechaPrestamo.setId(loan1.getDateLoan());
-        entregaPrestamo.setId(loan1.getDeliveryDate());
-        elemenPrestamo.setValue(loan1.getElement());
+
+    void fillInputLoan(LoanDetail loanDetail, TableView<LoanDetail> tblLoan,TextField cantidadPrestamo, ChoiceBox elemenPrestamo){
+        cantidadPrestamo.setText(loanDetail.getAmount());
+        //entregaPrestamo.setId(loan1.getDeliveryDate());
+        elemenPrestamo.setValue(loanDetail.getElement());
     }
 
 
@@ -97,4 +123,39 @@ public class LoanServiceImpl implements LoanService {
         loan.setDeliveryDate(loan1.getDeliveryDate());
         loan.setDebtorName(loan1.getDebtorName());
     }*/
+
+    //Reportes
+
+    public void bestStudent(Label prestamoEs,ArrayList<Student> studentArrayList){
+        int canti;
+        int mayor=0;
+        String studen="";
+        for(Student stu: studentArrayList){
+            canti=0;
+            for(Loan loan: listLoan){
+                if(loan.getDebtorName() == stu.getName()){
+                    canti++;
+                }
+            }
+            if(canti>mayor){
+                mayor=canti;
+                studen= stu.getName();
+            }
+        }
+        prestamoEs.setText(studen);
+    }
+    public void botonBuscar(String name,TableView<Loan>tblReportLoan){
+        for (Loan loan : loanReportList) {
+            if (Objects.equals(loan.getDebtorName(), name) ){
+                tblReportLoan.getSelectionModel().select(loan);
+                tblReportLoan.refresh();
+            }
+        }
+    }
+
+    public void totalLoan(Label totalPrestamo){
+        String total = String.valueOf(listLoan.size());
+        totalPrestamo.setText(total);
+    }
+
 }

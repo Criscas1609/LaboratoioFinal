@@ -2,22 +2,26 @@ package com.example.laboratorioFinal.model;
 
 //Prestamo
 
+import java.util.ArrayList;
+
 public class Loan {
     private String debtorName;
-    /*private String nombreMonitor;*/
-    private String element;
-    private String amount;
+    private String nombreMonitor;
+    private ArrayList<LoanDetail> listElement;
     private String dateLoan;
     private String deliveryDate;
-   /*private String tipo;*/
+    private String tipo;
 
-    public Loan(String debtorName, String element, String amount, String dateLoan, String deliveryDate) {
+
+    public Loan(String debtorName, String nombreMonitor, ArrayList<LoanDetail> listElement, String dateLoan, String deliveryDate, String tipo) {
         this.debtorName = debtorName;
-        this.element = element;
-        this.amount = amount;
+        this.nombreMonitor = nombreMonitor;
+        this.listElement = listElement;
         this.dateLoan = dateLoan;
         this.deliveryDate = deliveryDate;
+        this.tipo = tipo;
     }
+
 
     public String getDebtorName() {
         return debtorName;
@@ -27,20 +31,20 @@ public class Loan {
         this.debtorName = debtorName;
     }
 
-    public String getElement() {
-        return element;
+    public String getNombreMonitor() {
+        return nombreMonitor;
     }
 
-    public void setElement(String element) {
-        this.element = element;
+    public void setNombreMonitor(String nombreMonitor) {
+        this.nombreMonitor = nombreMonitor;
     }
 
-    public String getAmount() {
-        return amount;
+    public ArrayList<LoanDetail> getListElement() {
+        return listElement;
     }
 
-    public void setAmount(String amount) {
-        this.amount = amount;
+    public void setListElement(ArrayList<LoanDetail> listElement) {
+        this.listElement = listElement;
     }
 
     public String getDateLoan() {
@@ -58,5 +62,12 @@ public class Loan {
     public void setDeliveryDate(String deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
-}
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+}

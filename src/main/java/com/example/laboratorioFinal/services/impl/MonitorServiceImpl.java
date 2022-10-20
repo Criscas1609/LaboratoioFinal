@@ -14,7 +14,14 @@ import java.util.Objects;
 
 public class MonitorServiceImpl implements MonitorService {
     private ArrayList<Monitor> monitorArrayList = new ArrayList<>();
-    private Monitor monitor;
+
+    private ObservableList<String> listMonitorNames = FXCollections.observableArrayList();
+
+    public ObservableList<String> getListMonitorNames() {
+        return listMonitorNames;
+    }
+
+
     ObservableList<Monitor> monitorObservableList = FXCollections.observableArrayList();
 
     public ObservableList<Monitor> getMonitorObservableList() {
@@ -25,6 +32,7 @@ public class MonitorServiceImpl implements MonitorService {
         Monitor person = new Monitor(name, id, career, semester);
         monitorObservableList.add(person);
         monitorArrayList.add(person);
+        listMonitorNames.add(person.getName());
     }
 
     public void editMonitor(Monitor aux, TableView<Monitor> tableMonitor) {
@@ -64,6 +72,7 @@ public class MonitorServiceImpl implements MonitorService {
         } else {
             monitorObservableList.remove(monitor);
             monitorArrayList.remove(monitor);
+            listMonitorNames.remove(monitor.getName());
             tableMonitor.refresh();
             alert("Se ha eliminado correctamente", "Exito");
         }

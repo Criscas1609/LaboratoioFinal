@@ -142,9 +142,9 @@ public class ModelFactoryController implements ModelFactoryControllerService {
         laboratory.getAdministrativeService().eliminateTeacher(tblProfes, nombreProfesor, idProfesor, carreraProfesor, antiProfesor, materiaProfesor);
     }
     //Loan funciones:
-    public ObservableList<Loan>getLoanObservableList(){return laboratory.getLoanService().getLoanObservableList();}
-    public void addLoan(TableView<Loan> tblLoan,String element,String amount,String dateLoan,String deliveryDate,String debtorName){
-        laboratory.getLoanService().addLoan(tblLoan,element,amount,dateLoan,deliveryDate,debtorName);
+    public ObservableList<LoanDetail>getLoanObservableList(){return laboratory.getLoanService().getLoanObservableList();}
+    public void addLoan(String element,String amount,TableView<LoanDetail>tblLoan){
+        laboratory.getLoanService().addLoan(element,amount,tblLoan);
     }
     public void finalizarPrestamo(String element, String amount, String dateLoan, String deliveryDate, String debtorName){
         laboratory.getLoanService().finalizarPrestamo(element, amount, dateLoan, deliveryDate, debtorName);
