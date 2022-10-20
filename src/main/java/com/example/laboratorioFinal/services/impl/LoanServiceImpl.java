@@ -10,14 +10,15 @@ import javafx.scene.control.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class LoanServiceImpl implements LoanService {
     private LoanDetail loanDetail;
     String element;
     String amount;
-    String dateLoan;
+   /* String dateLoan;
     String deliveryDate;
-    String debtorName;
+    String debtorName;*/
 
     private ArrayList<Loan> listLoan = new ArrayList<>();
     private ArrayList<LoanDetail> listElement= new ArrayList<>();
@@ -49,12 +50,16 @@ public class LoanServiceImpl implements LoanService {
     public void setListLoan(ArrayList<Loan> listLoan) {this.listLoan = listLoan;}
 
     ObservableList<String> elementLoanList = FXCollections.observableArrayList("");
-    ObservableList<Loan> loanObservableList= FXCollections.observableArrayList();
+    ObservableList<LoanDetail> loanObservableList= FXCollections.observableArrayList();
+    ObservableList<String> tipoList = FXCollections.observableArrayList("Interno","Externo");
 
+    public ObservableList<String> getTipoList() {
+        return tipoList;
+    }
 
     public ObservableList<String> getElementLoanList() {return elementLoanList;}
 
-    public ObservableList<Loan> getLoanObservableList() {return loanObservableList;}
+    public ObservableList<LoanDetail> getLoanObservableList() {return loanObservableList;}
 
 
     public void addLoan(String element, String amount,TableView<LoanDetail> tblLoan) {
@@ -67,9 +72,8 @@ public class LoanServiceImpl implements LoanService {
         alertAT("El elemento se ha añadido a tu prestamo","¡Exito!");
     }
 
-    @Override
-    public void finalizarPrestamo(String element, String amount, String dateLoan, String deliveryDate, String debtorName) {
-        Loan loan = new Loan(debtorName, element, amount, dateLoan, deliveryDate);
+    public void finalizarPrestamo(String dateLoan, String deliveryDate, String debtorName,String tipo, String nombreMonitor) {
+       Loan loan = new Loan(debtorName,nombreMonitor,listElement,dateLoan,deliveryDate,tipo);
         listLoan.add(loan);
         loanReportList.add(loan);
         listElement.clear();
@@ -95,8 +99,8 @@ public class LoanServiceImpl implements LoanService {
         if (loanDetail == null){
             alertError("Debe tener un elemento seleccionado","Error");
         }else {
-            loanObservableList.remove(loan);
-            listLoan.remove(loan);
+            observableListElement.remove(loanDetail);
+            listElement.remove(loanDetail);
             tblLoan.refresh();
             alertAT("El prestamo se ha eliminado","¡Exito!");
         }

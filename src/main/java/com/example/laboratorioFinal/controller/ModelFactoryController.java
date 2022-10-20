@@ -253,6 +253,12 @@ public void finalizarPrestamo(String dateLoan, String deliveryDate, String debto
     public void totalPrice(Label precioTotal){
         laboratory.getElementService().totalPrice(precioTotal);
     }
+    public void botonBuscar(String name,TableView<Loan> tblReportLoan){laboratory.getLoanService().botonBuscar(name,tblReportLoan);}
+
+    //Reportes
+   public void totalLoan(Label totalPrestamo){
+        laboratory.getLoanService().totalLoan(totalPrestamo);
+   }
 
 }
 

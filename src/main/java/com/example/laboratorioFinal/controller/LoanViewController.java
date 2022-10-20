@@ -32,6 +32,8 @@ public class LoanViewController implements Initializable {
     String dateLoan;
     String deliveryDate;
     String debtorName;
+    String tipo;
+    String monitorName;
 
    /* @FXML
     private ResourceBundle resources;
@@ -64,13 +66,7 @@ public class LoanViewController implements Initializable {
     private DatePicker entregaPrestamo;
 
     @FXML
-    private CheckBox externo;
-
-    @FXML
     private DatePicker fechaPrestamo;
-
-    @FXML
-    private CheckBox interno;
 
     @FXML
     private ChoiceBox<String> nombreEstudiante;

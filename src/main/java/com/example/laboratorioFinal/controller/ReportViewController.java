@@ -6,17 +6,19 @@ import com.example.laboratorioFinal.model.LoanDetail;
 import com.example.laboratorioFinal.model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class ReportViewController {
+public class ReportViewController implements Initializable {
 
     ModelFactoryController mfc = ModelFactoryController.getInstance();
 
@@ -123,9 +125,9 @@ public class ReportViewController {
 
     @FXML
     void botonBuscar(ActionEvent event) {
+         name= String.valueOf(this.inputBuscar.getText());
+        mfc.botonBuscar(name,tblReportLoan);
     }
-
-
 
     @FXML
     void MainView(ActionEvent event) throws IOException {
