@@ -1,6 +1,7 @@
 package com.example.laboratorioFinal.services.impl;
 
 import com.example.laboratorioFinal.model.Administrative;
+import com.example.laboratorioFinal.model.Element;
 import com.example.laboratorioFinal.model.Monitor;
 import com.example.laboratorioFinal.model.Student;
 import com.example.laboratorioFinal.services.MonitorService;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class MonitorServiceImpl implements MonitorService {
+    private Monitor monitor;
     private ArrayList<Monitor> monitorArrayList = new ArrayList<>();
 
     private ObservableList<String> listMonitorNames = FXCollections.observableArrayList();
@@ -42,6 +44,7 @@ public class MonitorServiceImpl implements MonitorService {
             try {
                 if (!monitorObservableList.contains(aux)) {
                     fillTable(aux);
+                    editMonitor(aux);
                     tableMonitor.refresh();
                     alert("El editado se ha creado", "¡Exito!");
                 } else {
@@ -105,7 +108,6 @@ public class MonitorServiceImpl implements MonitorService {
         cantMCivil.setText(String.valueOf(civilMonitors));
     }
 
-
         //Funciones auxiliares
     public void fillTable(Monitor aux) {
         monitor.setCareer(aux.getCareer());
@@ -138,5 +140,23 @@ public class MonitorServiceImpl implements MonitorService {
     public void cargarMon(TableView<Monitor> tableMonitor) {
         tableMonitor.setItems(monitorObservableList);
         tableMonitor.refresh();
+    }
+    public void editMonitor(Monitor monitor) {
+        for (Monitor list : monitorArrayList) {
+            if (list.getName() == (monitor.getName()) && list.getId() == monitor.getId()) {
+                list.setName(monitor.getName());
+                list.setId(monitor.getId());
+                list.setSemester(monitor.getSemester());
+                list.setCareer(monitor.getCareer());
+                editListNames();
+            }
+        }
+    }
+
+    public void editListNames() {
+        listMonitorNames.clear();
+        for (Monitor moni : monitorArrayList) {
+            listMonitorNames.add(moni.getName());
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.example.laboratorioFinal.services.impl;
 
 import com.example.laboratorioFinal.controller.StudentViewController;
 import com.example.laboratorioFinal.model.Administrative;
+import com.example.laboratorioFinal.model.Element;
 import com.example.laboratorioFinal.model.Student;
 import com.example.laboratorioFinal.model.Teacher;
 import com.example.laboratorioFinal.services.StudentService;
@@ -17,6 +18,7 @@ import java.util.Objects;
 
 public class StudentServiceImpl implements StudentService {
     private Student studentService;
+    private final ArrayList<Student> listStudent = new ArrayList<>();
     String name;
     String id;
     String career;
@@ -86,6 +88,7 @@ public class StudentServiceImpl implements StudentService {
             try {
                 if (!studentObservableList.contains(studentaux)) {
                     fillTable(studentaux);
+                    editStudent(studentaux);
                     tablePersonEs.refresh();
                     alert("El estudiante se ha editado", "¡Exito!");
                 } else {
@@ -161,7 +164,7 @@ public class StudentServiceImpl implements StudentService {
 
     //Funciones aparte
 
-    void alert(String message, String title) {
+    public void alert(String message, String title) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
         alert.setTitle(title);
@@ -188,4 +191,23 @@ public class StudentServiceImpl implements StudentService {
         tablePersonEs.refresh();
     }
 
+    public void editStudent(Student student) {
+        for (Student list : listStudent) {
+            if (list.getName() == (student.getName())) {
+                list.setId(student.getId());
+                list.setName(student.getName());
+                list.setSemester(student.getSemester());
+                list.setCareer(student.getCareer());
+                editListNames();
+            }
+        }
+    }
+
+    public void editListNames() {
+        listStudentNames.clear();
+        for (Student stud : listStudent) {
+            listStudentNames.add(stud.getName());
+            System.out.println(stud.getName());
+        }
+    }
 }

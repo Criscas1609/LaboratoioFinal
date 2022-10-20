@@ -90,9 +90,9 @@ public class LoanServiceImpl implements LoanService {
     }
 
 
-    public void eliminarPrestamo(TableView<Loan> tblLoan, TextField cantidadPrestamo, ChoiceBox nombreEstudiante, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo) {
-        seleccionar(tblLoan,cantidadPrestamo,nombreEstudiante,fechaPrestamo,entregaPrestamo,elemenPrestamo);
-        if (loan == null){
+    public void eliminarPrestamo(TableView<LoanDetail> tblLoan, TextField cantidadPrestamo, ChoiceBox elemenPrestamo) {
+        seleccionar(tblLoan,cantidadPrestamo,elemenPrestamo);
+        if (loanDetail == null){
             alertError("Debe tener un elemento seleccionado","Error");
         }else {
             loanObservableList.remove(loan);

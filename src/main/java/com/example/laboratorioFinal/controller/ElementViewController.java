@@ -141,7 +141,7 @@ public class ElementViewController implements Initializable {
     }
 
     @FXML
-    void crearElemen(ActionEvent event) {
+    void crearElemen(ActionEvent event) throws Exception{
         getData();
         mfc.crearElemen(tblElement,nombre,tipo,cantidad,uso,ubicacion,estado,id,precio);
 
@@ -161,7 +161,7 @@ public class ElementViewController implements Initializable {
     }
 
     @FXML
-    void editarElemen(ActionEvent event) {
+    void editarElemen(ActionEvent event) throws Exception{
        getData();
        Element aux= new Element(nombre,tipo,cantidad,uso,ubicacion,estado,id,precio);
        mfc.editarElemen(aux,tblElement);
@@ -169,15 +169,16 @@ public class ElementViewController implements Initializable {
     }
 
     @FXML
-    void eliminarElemen(ActionEvent event) {
+    void eliminarElemen(ActionEvent event) throws Exception{
         getData();
         mfc.eliminarElemen(tblElement,cantidadElemen,usoElemen,ubiElemen,tipoElemen,precioElemen,nombreElemen,idElemen,estadoElemen);
 
     }
 
     @FXML
-    void getData(){
+    void getData() throws Exception{
         nombre = String.valueOf(this.nombreElemen.getText());
+        exception(nombre);
         tipo = String.valueOf(this.tipoElemen.getValue());
         cantidad = Integer.parseInt(this.cantidadElemen.getText());
         uso = String.valueOf(this.usoElemen.getValue());
@@ -185,6 +186,24 @@ public class ElementViewController implements Initializable {
         estado = String.valueOf(this.estadoElemen.getValue());
         id = String.valueOf(this.idElemen.getText());
         precio = Integer.parseInt(this.precioElemen.getText());
+    }
+    private static boolean esNumeroInteger(String name) {
+        try
+        {
+            Integer.parseInt(name);
+            return true;
+        }
+        catch (NumberFormatException nfe)
+        {
+            return false;
+        }
+    }
+    @FXML
+    void exception(String name) throws Exception {
+        boolean yes = esNumeroInteger(name);
+        if(yes){
+            throw new Exception("Debes ingresar caracteres");
+        }
     }
 
 }

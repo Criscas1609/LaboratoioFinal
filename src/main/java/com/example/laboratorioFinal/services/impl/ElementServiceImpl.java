@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ElementServiceImpl implements ElementService{
+public class ElementServiceImpl implements ElementService {
     private Element element;
     String nombre;
     String tipo;
@@ -84,30 +84,32 @@ public class ElementServiceImpl implements ElementService{
         listNames.add(element.getNombre());
         tblElement.setItems(elementObservableList);
         tblElement.refresh();
-        alertAT("El elemento se ha creado","¡Exito!");
+        alertAT("El elemento se ha creado", "¡Exito!");
     }
 
 
     public void editarElemen(Element aux, TableView<Element> tblElement) {
-        if (element == null){
-            alertError("Debe tener un elemento seleccionado","Error");
-        }else{
+        if (element == null) {
+            alertError("Debe tener un elemento seleccionado", "Error");
+        } else {
             try {
                 if (!elementObservableList.contains(aux)) {
                     fillTable(aux);
+                    System.out.println(aux.getNombre() + "1");
+                    editElement(aux);
                     tblElement.refresh();
                     // editListNames(aux);
                     alertAT("El elemento se ha editado", "¡Exito!");
                 } else {
-                    alertError("El elemento ya existe","Error");
+                    alertError("El elemento ya existe", "Error");
                 }
             } catch (NumberFormatException e) {
-                alertError("Formato incorrecto","Error");
+                alertError("Formato incorrecto", "Error");
             }
         }
     }
 
-    public void buscarElemen(TableView<Element> tblElement, String name){
+    public void buscarElemen(TableView<Element> tblElement, String name) {
         for (Element element1 : elementObservableList) {
             if (Objects.equals(element1.getNombre(), name) || Objects.equals(element1.getId(), name)) {
                 tblElement.getSelectionModel().select(element1);
@@ -115,136 +117,137 @@ public class ElementServiceImpl implements ElementService{
             }
         }
     }
+
     public void seleccionarElement(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen, ChoiceBox ubiElemen, ChoiceBox tipoElemen, TextField precioElemen, TextField nombreElemen, TextField idElemen, ChoiceBox estadoElemen) {
-       element = tblElement.getSelectionModel().getSelectedItem();
-       fillInput(element,tblElement,cantidadElemen,usoElemen,ubiElemen,tipoElemen,precioElemen,nombreElemen,idElemen,estadoElemen);
+        element = tblElement.getSelectionModel().getSelectedItem();
+        fillInput(element, tblElement, cantidadElemen, usoElemen, ubiElemen, tipoElemen, precioElemen, nombreElemen, idElemen, estadoElemen);
 
     }
 
 
     public void eliminarElemen(TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen, ChoiceBox ubiElemen, ChoiceBox tipoElemen, TextField precioElemen, TextField nombreElemen, TextField idElemen, ChoiceBox estadoElemen) {
-        if (element == null){
-            alertError("Debe tener un elemento seleccionado","Error");
-        }else {
+        if (element == null) {
+            alertError("Debe tener un elemento seleccionado", "Error");
+        } else {
             elementObservableList.remove(element);
             listElement.remove(element);
             listNames.remove(element.getNombre());
             tblElement.refresh();
-            alertAT("El elemento se ha eliminado","¡Exito!");
+            alertAT("El elemento se ha eliminado", "¡Exito!");
         }
     }
     //Ciclo para el prestamo
 
 
-
     //Reportes
 
-    public void allElements(Label cantElement){
+    public void allElements(Label cantElement) {
         int allElements = listElement.size();
         cantElement.setText(String.valueOf(allElements));
     }
-    public void fichastype(Label cantFichas){
-        int fichastype=0;
-        for (Element element : listElement){
-            if (element.getTipo().equals("Fichas")){
+
+    public void fichastype(Label cantFichas) {
+        int fichastype = 0;
+        for (Element element : listElement) {
+            if (element.getTipo().equals("Fichas")) {
                 fichastype++;
             }
         }
         cantFichas.setText(String.valueOf(fichastype));
     }
 
-    public void metalType(Label cantMetal){
-        int metalType=0;
-        for (Element element : listElement){
-            if (element.getTipo().equals("Piezas_Metal")){
+    public void metalType(Label cantMetal) {
+        int metalType = 0;
+        for (Element element : listElement) {
+            if (element.getTipo().equals("Piezas_Metal")) {
                 metalType++;
             }
         }
         cantMetal.setText(String.valueOf(metalType));
     }
 
-    public void esferasType(Label cantEsferas){
-        int esferasType=0;
-        for (Element element : listElement){
-            if (element.getTipo().equals("Piezas_Metal")){
+    public void esferasType(Label cantEsferas) {
+        int esferasType = 0;
+        for (Element element : listElement) {
+            if (element.getTipo().equals("Piezas_Metal")) {
                 esferasType++;
             }
         }
         cantEsferas.setText(String.valueOf(esferasType));
     }
 
-    public void ruedasType(Label cantRuedas){
-        int ruedasType=0;
-        for (Element element : listElement){
-            if (element.getTipo().equals("Piezas_Metal")){
+    public void ruedasType(Label cantRuedas) {
+        int ruedasType = 0;
+        for (Element element : listElement) {
+            if (element.getTipo().equals("Piezas_Metal")) {
                 ruedasType++;
             }
         }
         cantRuedas.setText(String.valueOf(ruedasType));
     }
 
-    public void availableReport(Label cantDisponibles){
+    public void availableReport(Label cantDisponibles) {
         int availableElements = 0;
-        for (Element element : listElement){
-            if (element.getEstado().equals("Disponible")){
+        for (Element element : listElement) {
+            if (element.getEstado().equals("Disponible")) {
                 availableElements++;
             }
         }
         cantDisponibles.setText(String.valueOf(availableElements));
     }
 
-    public void notAvailableReport(Label cantNoDis){
+    public void notAvailableReport(Label cantNoDis) {
         int notAvailableElements = 0;
-        for (Element element : listElement){
-            if (element.getEstado().equals("No Disponible")){
+        for (Element element : listElement) {
+            if (element.getEstado().equals("No Disponible")) {
                 notAvailableElements++;
             }
         }
         cantNoDis.setText(String.valueOf(notAvailableElements));
     }
 
-    public void ensambleReport(Label cantEnsamble){
+    public void ensambleReport(Label cantEnsamble) {
         int ensambleElements = 0;
-        for (Element element : listElement){
-            if (element.getUso().equals("Ensamble")){
+        for (Element element : listElement) {
+            if (element.getUso().equals("Ensamble")) {
                 ensambleElements++;
             }
         }
         cantEnsamble.setText(String.valueOf(ensambleElements));
     }
 
-    public void estructuraReport(Label cantEstructura){
+    public void estructuraReport(Label cantEstructura) {
         int estructuraElements = 0;
-        for (Element element : listElement){
-            if (element.getUso().equals("Ensamble")){
+        for (Element element : listElement) {
+            if (element.getUso().equals("Ensamble")) {
                 estructuraElements++;
             }
         }
         cantEstructura.setText(String.valueOf(estructuraElements));
     }
-    public void movimientoReport(Label cantMov){
+
+    public void movimientoReport(Label cantMov) {
         int movimientoElements = 0;
-        for (Element element : listElement){
-            if (element.getUso().equals("Ensamble")){
+        for (Element element : listElement) {
+            if (element.getUso().equals("Movimiento")) {
                 movimientoElements++;
             }
         }
         cantMov.setText(String.valueOf(movimientoElements));
     }
 
-    public void totalPrice(Label precioTotal){
+    public void totalPrice(Label precioTotal) {
         int totalPrice = 0;
-        for (Element element : listElement){
-            totalPrice += element.getPrecio()* element.getCantidad();
-            }
+        for (Element element : listElement) {
+            totalPrice += element.getPrecio() * element.getCantidad();
+        }
 
         precioTotal.setText(String.valueOf(totalPrice));
     }
 
 
-
-   //Otras funciones
-    void fillTable(Element element1){
+    //Otras funciones
+    void fillTable(Element element1) {
         element.setNombre(element1.getNombre());
         element.setCantidad(element1.getCantidad());
         element.setEstado(element1.getEstado());
@@ -254,7 +257,8 @@ public class ElementServiceImpl implements ElementService{
         element.setUbicacion(element1.getUbicacion());
         element.setUso(element1.getUso());
     }
-    void fillInput(Element elemen, TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen, ChoiceBox ubiElemen, ChoiceBox tipoElemen, TextField precioElemen, TextField nombreElemen, TextField idElemen, ChoiceBox estadoElemen){
+
+    void fillInput(Element elemen, TableView<Element> tblElement, TextField cantidadElemen, ChoiceBox usoElemen, ChoiceBox ubiElemen, ChoiceBox tipoElemen, TextField precioElemen, TextField nombreElemen, TextField idElemen, ChoiceBox estadoElemen) {
         cantidadElemen.setText(String.valueOf(elemen.getCantidad()));
         usoElemen.setValue(String.valueOf(elemen.getUso()));
         ubiElemen.setValue(String.valueOf(elemen.getUbicacion()));
@@ -265,7 +269,8 @@ public class ElementServiceImpl implements ElementService{
         estadoElemen.setValue(String.valueOf(elemen.getEstado()));
 
     }
-    void alertError(String message, String title){
+
+    void alertError(String message, String title) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
         alert.setTitle(title);
@@ -273,7 +278,7 @@ public class ElementServiceImpl implements ElementService{
         alert.showAndWait();
     }
 
-    void alertAT(String message, String title ){
+    void alertAT(String message, String title) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setTitle(title);

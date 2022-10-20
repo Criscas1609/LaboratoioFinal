@@ -19,7 +19,7 @@ public class StudentViewController implements Initializable {
 
     private Student student;
 
-    private String name;
+    private String name ="";
     private String id;
     private String career;
     private String semester;
@@ -69,7 +69,7 @@ public class StudentViewController implements Initializable {
     }
 
     @FXML
-    void botonCrearE(ActionEvent event) {
+    void botonCrearE(ActionEvent event) throws Exception{
         getData();
         mfc.createStudent(name, id, career, semester);
         mfc.addTable(tablePersonEs);
@@ -77,14 +77,14 @@ public class StudentViewController implements Initializable {
     }
 
     @FXML
-    void botonEditarE(ActionEvent event) {
+    void botonEditarE(ActionEvent event) throws Exception {
         getData();
         Student aux = new Student(name, id, career, semester);
         mfc.editStudent(tablePersonEs, nombreEstudiante, idEstudiante, semestreEstudiante, carreraEstudiante, aux);
     }
 
     @FXML
-    void botonEliminarE(ActionEvent event) {
+    void botonEliminarE(ActionEvent event) throws Exception {
         getData();
         mfc.removeStudent(tablePersonEs, idEstudiante, nombreEstudiante, semestreEstudiante,carreraEstudiante);
     }
@@ -125,12 +125,32 @@ public class StudentViewController implements Initializable {
     }
 
     @FXML
-    void getData() {
+    void getData() throws Exception {
         name = String.valueOf(this.nombreEstudiante.getText());
+        exception(name);
         id = String.valueOf(this.idEstudiante.getText());
         semester = String.valueOf(this.semestreEstudiante.getValue());
         career = String.valueOf(this.carreraEstudiante.getValue());
     }
+    private static boolean esNumeroInteger(String name) {
+        try //intenta convertir la cadena a entero y si no puede captura la excepción
+        {
+            Integer.parseInt(name);
+            return true;
+        }
+        catch (NumberFormatException nfe)//aca atrapas la excepcion
+        {
+            return false;
+        }
+    }
+    @FXML
+    void exception(String name) throws Exception {
+         boolean yes = esNumeroInteger(name);
+        if(yes){
+            throw new Exception("Debes ingresar caracteres");
+        }
+    }
+
     @FXML
     void cargarEs(ActionEvent event) {
         mfc.cargarEs(tablePersonEs);

@@ -57,7 +57,6 @@ public interface ModelFactoryControllerService {
 
 
     //Reportes
-
     void allStudent(Label cantEs);
     void allSoftware(Label cantSoft);
     void allIndus(Label cantIndus);

@@ -7,6 +7,8 @@ import com.example.laboratorioFinal.services.impl.LaboratoryServiceImpl;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 
+import java.util.ArrayList;
+
 public class ModelFactoryController implements ModelFactoryControllerService {
     LaboratoryServiceImpl laboratory;
     private static class SingletonHolder {
@@ -57,7 +59,6 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     }
 
 
-
     public ObservableList<Element>getElementArrayList(){return laboratory.getElementService().getObservableListElement();}
     public ObservableList<String>getTipoElement(){
         return laboratory.getElementService().getTipoElemenList();
@@ -67,6 +68,7 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     public ObservableList<String>getStateElement(){return laboratory.getElementService().getStateElement();}
 
    // Estudiante funciones:
+    public ArrayList<Student> getListStudent(){return laboratory.getStudentService().getListStudent();}
     public ObservableList<String>getCareerStudent(){return laboratory.getStudentService().getCareerStudent();}
     public ObservableList<String>getSemeStudent(){return laboratory.getStudentService().getSemeStudent();}
     public ObservableList<Student>getStudentArrayList(){return laboratory.getStudentService().getStudentObservableList();}
@@ -99,6 +101,10 @@ public class ModelFactoryController implements ModelFactoryControllerService {
 
     public void cargarEs(TableView<Student> tablePersonEs){
         laboratory.getStudentService().cargarEs(tablePersonEs);
+    }
+
+    public void bestStudent(Label prestamoEs,ArrayList<Student> studentArrayList){
+        laboratory.getLoanService().bestStudent(prestamoEs, studentArrayList);
     }
     // Administrativo funciones
 
@@ -146,11 +152,11 @@ public class ModelFactoryController implements ModelFactoryControllerService {
     public void addLoan(String element,String amount,TableView<LoanDetail>tblLoan){
         laboratory.getLoanService().addLoan(element,amount,tblLoan);
     }
-    public void finalizarPrestamo(String element, String amount, String dateLoan, String deliveryDate, String debtorName){
-        laboratory.getLoanService().finalizarPrestamo(element, amount, dateLoan, deliveryDate, debtorName);
+public void finalizarPrestamo(String dateLoan, String deliveryDate, String debtorName,String tipo, String nombreMonitor){
+        laboratory.getLoanService().finalizarPrestamo(dateLoan, deliveryDate,debtorName,tipo,nombreMonitor);
     }
-    public void eliminarPrestamo(TableView<Loan> tblLoan, TextField cantidadPrestamo, ChoiceBox nombreEstudiante, DatePicker fechaPrestamo, DatePicker entregaPrestamo, ChoiceBox elemenPrestamo){
-        laboratory.getLoanService().eliminarPrestamo(tblLoan,cantidadPrestamo,nombreEstudiante,fechaPrestamo,entregaPrestamo,elemenPrestamo);
+    public void eliminarPrestamo(TableView<LoanDetail> tblLoan, TextField cantidadPrestamo,ChoiceBox elemenPrestamo){
+        laboratory.getLoanService().eliminarPrestamo(tblLoan,cantidadPrestamo,elemenPrestamo);
     }
 
     // Monitor functions:

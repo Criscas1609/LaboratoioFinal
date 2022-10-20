@@ -123,8 +123,6 @@ public class LoanViewController implements Initializable {
 
     }
 
-
-
     @FXML
     void getData(){
         monitorName = String.valueOf(this.nombreMonitor.getValue());
@@ -135,16 +133,6 @@ public class LoanViewController implements Initializable {
         element = String.valueOf(this.elemenPrestamo.getValue());
         tipo=String.valueOf(this.tipoPrestamo.getValue());
     }
-    /*@FXML
-    void getDate(ActionEvent event) {
-        LocalDate myDate= fechaPrestamo.getValue();
-        colPrestamoLoan.setText(String.valueOf(myDate));
 
-    }
-
-    @FXML
-    void getDelivery(ActionEvent event) {
-
-    }*/
 
 }

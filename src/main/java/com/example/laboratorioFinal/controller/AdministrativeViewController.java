@@ -232,48 +232,5 @@ public class AdministrativeViewController implements Initializable {
         antiguetyTeacher = String.valueOf((this.antiProfesor.getText()));
         asingTeacher= String.valueOf(this.materiaProfesor.getValue());
     }
-/*    @FXML
-    void seleccionarAdmin(*//*MouseEvent event*//*) {
-        admin = this.tblAdmin.getSelectionModel().getSelectedItem();
-    }
-   @FXML
-    void seleccionarTeacher() {
-        teacher = this.tblProfes.getSelectionModel().getSelectedItem();
-        fillInputTeacher();
-    }*/
-
-/*    @FXML
-    void alertError(String message, String title){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setTitle(title);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
-    @FXML
-    void fillTableAdmin(Administrative admin1){
-        admin.setName(admin1.getName());
-        admin.setAntiguety(admin1.getAntiguety());
-        admin.setCharger(admin1.getCharger());
-        admin.setId(admin1.getId());
-
-    }
-    @FXML
-    void fillTableTeacher(Teacher teach){
-        teacher.setName(teach.getName());
-        teacher.setYears(teach.getYears());
-        teacher.setCareerTeacher(teach.getCareerTeacher());
-        teacher.setId(teach.getId());
-        teacher.setAsignature(teach.getAsignature());
-    }
-    @FXML
-    void alertAT(String message, String title ){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(null);
-        alert.setTitle(title);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }*/
 
 }
